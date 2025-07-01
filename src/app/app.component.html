@@ -1,12 +1,11 @@
-<!-- toggle-icon-->
+<!-- Toggle Icon -->
 <div class="toggle-icon" *ngIf="!isSidebarOpen" (click)="toggleSidebar()">
   <i class="pi pi-bars"></i>
 </div>
 
-<app-sidebar
-  *ngIf="isSidebarOpen"
-  (close)="toggleSidebar()"
-></app-sidebar>
-
+<!-- Sidebar with animation -->
+<div *ngIf="isSidebarOpen" @sidebarAnimation class="sidebar-container">
+  <app-sidebar (close)="toggleSidebar()"></app-sidebar>
+</div>
 
 <router-outlet></router-outlet>
