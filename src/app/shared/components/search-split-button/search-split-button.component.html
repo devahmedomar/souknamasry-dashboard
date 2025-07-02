@@ -1,1 +1,31 @@
-<p>search-split-button works!</p>
+<div class="input-group search-bar">
+  <div class="dropdown" [class.show]="isDropdownOpen">
+    <div>
+      <button
+        type="button"
+        class="btn dropdown-toggle dropdown-button"
+        (click)="toggleDropdown()"
+        aria-label="Select filter"
+      ></button>
+
+      <ul class="dropdown-menu" [class.show]="isDropdownOpen">
+        <li><a class="dropdown-item" role="button">Users</a></li>
+        <li><a class="dropdown-item" role="button">Posts</a></li>
+        <li><a class="dropdown-item" role="button">Reports</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="line-border"></div>
+
+  <input
+    type="text"
+    class="border-0 search-input"
+    placeholder="Search"
+    [(ngModel)]="searchTerm"
+  />
+
+  <button class="btn icon-button" type="button" (click)="search()">
+    <i class="pi pi-search"></i>
+  </button>
+</div>
