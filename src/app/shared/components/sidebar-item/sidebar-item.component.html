@@ -1,0 +1,48 @@
+<li>
+  <!-- Main Link -->
+  <a 
+    (click)="toggle()" 
+    [class.active]="isMainActive()"
+    
+  >
+    <!-- Main Icon -->
+    <i 
+      *ngIf="icon" 
+      class="pi icon" 
+      [ngClass]="icon" 
+      style="margin-right: 15px;"
+    ></i>
+
+    <!-- Label -->
+    <span>{{ label }}</span>
+
+    <!-- Dropdown Arrow (for submenu) -->
+    <i 
+      *ngIf="subItems?.length"
+      class="pi"
+      [ngClass]="isOpen ? 'pi-chevron-up' : 'pi-chevron-down'"
+      style="margin-left: 10px; "
+    ></i>
+  </a>
+
+  <!-- Submenu -->
+  <ul *ngIf="subItems && isOpen" [@submenuAnimation]>
+    <li *ngFor="let sub of subItems">
+      <a 
+        (click)="navigateSub(sub)" 
+        [class.active]="isSubActive(sub.route)"
+      >
+        <!-- Submenu Icon -->
+        <i 
+          *ngIf="sub.icon" 
+          class="pi" 
+          [ngClass]="sub.icon" 
+          style="margin-right: 8px;"
+        ></i>
+
+        <!-- Submenu Label -->
+        <span>{{ sub.label }}</span>
+      </a>
+    </li>
+  </ul>
+</li>
