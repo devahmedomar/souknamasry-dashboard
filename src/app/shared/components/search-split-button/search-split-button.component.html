@@ -1,1 +1,10 @@
-<p>search-split-button works!</p>
+<p-cascadeSelect 
+  [(ngModel)]="selectedItem"
+  [options]="items"
+  optionLabel="name"
+  optionGroupLabel="name"
+  [optionGroupChildren]="['children']"
+  placeholder="Search"
+  [style]="{ minWidth: '16rem' }">
+</p-cascadeSelect>
+

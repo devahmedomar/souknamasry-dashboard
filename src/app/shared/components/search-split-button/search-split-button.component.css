@@ -1,0 +1,23 @@
+/* Remove default input borders and focus styles */
+.input-style,
+.input-style:focus,
+.input-style:active {
+  outline: none ;
+  box-shadow: none ;
+  border: none ;
+}
+
+/*  Customize the appearance of PrimeNG CascadeSelect*/
+::ng-deep .p-cascadeselect {
+  background-color: #fff !important;
+  border-radius: 10px;
+  padding: 4px 8px;
+  border: none !important;
+  color: #333 !important;
+  box-shadow: 0 0 0 2px rgba(153, 185, 161, 0.15); 
+}
+
+/* Left spacing for CascadeSelect sublist */
+::ng-deep .p-cascadeselect-sublist {
+  margin-left: 10px !important;
+}
