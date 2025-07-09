@@ -1,1 +1,112 @@
-<p>crud-table works!</p>
+<!-- ✅ Main Data Table -->
+<p-table
+  [value]="paginatedData"
+  class="custom-table"
+  scrollable="true"
+>
+  <!-- 🔹 Table Header -->
+  <ng-template pTemplate="header">
+    <tr>
+      <!-- Render dynamic columns -->
+      <th *ngFor="let col of columns" [style.width]="col.width">
+        {{ col.header }}
+      </th>
+
+      <!-- Fixed column for actions -->
+      <th style="width: 160px;">Actions</th>
+    </tr>
+  </ng-template>
+
+  <!-- 🔹 Table Body -->
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <!-- Render each cell based on column config -->
+      <td *ngFor="let col of columns">
+        <ng-container [ngSwitch]="col.field">
+
+          <!-- Special case: Boolean display -->
+          <ng-container *ngSwitchCase="'hasOrder'">
+            {{ row[col.field] ? 'Yes' : 'No' }}
+          </ng-container>
+
+          <!-- Special case: Status display with icon and color -->
+          <ng-container *ngSwitchCase="'status'">
+            <span
+              [ngClass]="{
+                'text-green-600': row.status === 'active',
+                'text-red-600': row.status !== 'active'
+              }"
+            >
+              <i
+                class="pi"
+                [ngClass]="{
+                  'pi-check-circle': row.status === 'active',
+                  'pi-times-circle': row.status !== 'active'
+                }"
+              ></i>
+              {{ row.status === 'active' ? 'Active' : 'Inactive' }}
+            </span>
+          </ng-container>
+
+          <!-- Default case: Display value as-is -->
+          <ng-container *ngSwitchDefault>
+            {{ row[col.field] }}
+          </ng-container>
+
+        </ng-container>
+      </td>
+
+      <!-- 🔹 Action buttons -->
+      <td class="actions-cell">
+        <!-- View button -->
+        <button
+          pButton
+          icon="pi pi-eye"
+          class="p-button-sm p-button-text p-button-info"
+          (click)="onView.emit(row)"
+          tooltip="View"
+        ></button>
+
+        <!-- Edit button -->
+        <button
+          pButton
+          icon="pi pi-pencil"
+          class="p-button-sm p-button-text p-button-warning"
+          (click)="onEdit.emit(row)"
+          tooltip="Edit"
+        ></button>
+
+        <!-- Delete button -->
+        <button
+          pButton
+          icon="pi pi-trash"
+          class="p-button-sm p-button-text p-button-danger"
+          (click)="onDelete.emit(row)"
+          tooltip="Delete"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- ✅ Custom Paginator (only shown if needed) -->
+<div class="p-paginator p-component custom-paginator" *ngIf="data.length > rows">
+  <!-- Showing X to Y of Z entries -->
+  <span class="p-paginator-current">
+    Showing {{ first + 1 }} to
+    {{
+      first + rows > data.length
+        ? data.length
+        : first + rows
+    }}
+    of {{ data.length }} entries
+  </span>
+
+  <!-- PrimeNG Paginator Component -->
+  <p-paginator
+    [rows]="rows"
+    [totalRecords]="data.length"
+    [first]="first"
+    (onPageChange)="onPageChange($event)"
+  ></p-paginator>
+</div>
