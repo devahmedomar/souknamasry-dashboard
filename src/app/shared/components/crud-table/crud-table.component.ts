@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  Inject
-} from '@angular/core';
+import {Component,Input,Output,EventEmitter,Inject} from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -41,27 +35,6 @@ export class CrudTableComponent {
     // Detect if running in browser (important for SSR support)
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
-
-  // 🔹 Optional responsiveness (disabled for now)
-  // ngOnInit(): void {
-  //   if (this.isBrowser) {
-  //     this.checkScreenSize();
-  //     window.addEventListener('resize', () => this.checkScreenSize());
-  //   }
-  // }
-
-  // @HostListener('window:resize')
-  // onResize() {
-  //   if (this.isBrowser) {
-  //     this.checkScreenSize();
-  //   }
-  // }
-
-  // private checkScreenSize() {
-  //   if (this.isBrowser) {
-  //     this.isMobileView = window.innerWidth <= 1070;
-  //   }
-  // }
 
   //  Slice data manually for pagination
   get paginatedData() {
