@@ -1,0 +1,100 @@
+.login-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F6F1EF;
+}
+#company-logo{
+    position: absolute;
+    top: 20px;
+    margin-left:9rem;
+    width: 298px;
+    height: 92px;
+    transform: scale(0.7);
+    z-index: 10;
+}
+::ng-deep .p-card, ::ng-deep.p-element{
+    border-radius: 30px ;
+}
+.login-card {
+  margin: 80px auto 0 auto;
+  width: 986px;
+  background: #fff;
+  transform: scale(0.9);
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+.login-form {
+  width: 45%;
+}
+
+.login-form h2 {
+  color: #604239;
+  font-weight: 700;
+}
+
+::ng-deep .p-field  .p-password{
+    margin-bottom: 1rem;
+}
+::ng-deep .p-field .p-password,::ng-deep .p-field .p-inputtext{
+    width: 100%; 
+    border-radius: 5px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.forgot-link {
+  color: #8e5b45;
+  text-decoration: none;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #604239;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.login-button:hover {
+  background-color: #FD833D;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.login-image {
+  width: 50%;
+  text-align: center;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.login-image img {
+  width: 90%;
+}

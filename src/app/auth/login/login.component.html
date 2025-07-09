@@ -1,1 +1,55 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <img id="company-logo" src="assets/soukna_masry_logo.png" alt="soukna_masry_logo">
+  <p-card class="login-card">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <div class="login-container">
+        <div class="login-form">
+          <h2>Welcome back!</h2>
+          <p>Please enter your email or phone to log in.</p>
+
+          <div class="p-field">
+            <input
+              id="email"
+              name="email"
+              type="text"
+              pInputText
+              placeholder="Email or phone"
+              [(ngModel)]="loginData.email"
+              required
+            />
+          </div>
+
+          <div class="p-field">
+            <br>
+            <p-password
+              id="password"
+              name="password"
+              placeholder="Password"
+              [(ngModel)]="loginData.password"
+              [toggleMask]="true"
+              required
+            ></p-password>
+          </div>
+
+          <div class="options">
+            <div class="checkbox-group">
+                <p-checkbox
+                name="remember"
+                [(ngModel)]="loginData.remember"
+                inputId="remember"
+                ></p-checkbox>
+                <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot-link">Forget Password?</a>
+          </div>
+
+          <button pButton type="submit" label="Log In" class="login-button"></button>
+        </div>
+
+        <div class="login-image">
+          <img src="assets/login-page-img.png" alt="Login Illustration" />
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>
