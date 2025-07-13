@@ -77,7 +77,56 @@ export class UsersComponent {
       phone: '01098765432',
       hasOrder: false,
       email: 'mo@example.com'
-    }
+    },
+    {
+      id: 8,
+      name: 'Mohamed Ali',
+      status: 'inactive',
+      phone: '01098765432',
+      hasOrder: false,
+      email: 'mo@example.com'
+    },
+    {
+      id: 9,
+      name: 'Mohamed Ali',
+      status: 'inactive',
+      phone: '01098765432',
+      hasOrder: false,
+      email: 'mo@example.com'
+    },
+    {
+      id: 10,
+      name: 'Mohamed Ali',
+      status: 'inactive',
+      phone: '01098765432',
+      hasOrder: false,
+      email: 'mo@example.com'
+    },
+    {
+      id: 11,
+      name: 'Mohamed Ali',
+      status: 'inactive',
+      phone: '01098765432',
+      hasOrder: false,
+      email: 'mo@example.com'
+    },
+    {
+      id: 12,
+      name: 'Mohamed Ali',
+      status: 'inactive',
+      phone: '01098765432',
+      hasOrder: false,
+      email: 'mo@example.com'
+    },
+    {
+      id: 13,
+      name: 'Mohamed Ali',
+      status: 'inactive',
+      phone: '01098765432',
+      hasOrder: false,
+      email: 'mo@example.com'
+    },
+    
   ];
 
   // ✅ Handle view action from the table
