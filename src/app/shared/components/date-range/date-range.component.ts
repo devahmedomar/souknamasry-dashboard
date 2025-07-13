@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-date-range',
@@ -10,16 +10,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './date-range.component.html',
   styleUrl: './date-range.component.css',
 })
-export class DateRangeComponent implements OnInit {
-  rangeDates: Date[] | undefined;
+export class DateRangeComponent {
+  rangeDates: Date[] = [];
   showCalendar = false;
 
-  ngOnInit() {
-    // Optional: Set default range if needed
-    // this.rangeDates = [new Date(), new Date()];
-  }
-
-  toggleCalendar(event: MouseEvent) {
+  toggleCalendarVisibilty(event: MouseEvent) {
     event.stopPropagation(); // Prevent closing immediately
     this.showCalendar = !this.showCalendar;
   }
@@ -38,7 +33,9 @@ export class DateRangeComponent implements OnInit {
     const endDate = this.rangeDates[1];
 
     if (startDate && endDate) {
-      return `${this.formatDate(startDate)} - ${this.formatDate(endDate)}`;
+      const startStr = this.formatDate(startDate);
+      const endStr = this.formatDate(endDate);
+      return startStr === endStr ? startStr : `${startStr} - ${endStr}`;
     } else if (startDate) {
       return this.formatDate(startDate);
     }

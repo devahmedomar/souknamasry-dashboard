@@ -1,4 +1,4 @@
-.relative {
+.date-range-wrapper {
   position: relative;
 }
 
@@ -69,7 +69,7 @@
 ::ng-deep .custom-panel .p-datepicker-calendar th {
   padding: 0.5rem 0.25rem;
   font-weight: 600;
-  /* color: #6b7280; */
+
   font-size: 0.875rem;
 }
 
@@ -112,11 +112,11 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .date-width {
-    width: 23% !important;
+    width: 20% !important;
   }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
   .date-width {
-    width: 17% !important;
+    width: 16% !important;
   }
 }
