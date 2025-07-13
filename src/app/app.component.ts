@@ -5,7 +5,7 @@ import { DateRangeComponent } from "./shared/components/date-range/date-range.co
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DateRangeComponent],
+  imports: [ DateRangeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

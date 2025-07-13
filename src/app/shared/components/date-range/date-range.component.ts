@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-date-range',
@@ -9,6 +10,8 @@ import { CalendarModule } from 'primeng/calendar';
   imports: [FormsModule, CalendarModule, CommonModule],
   templateUrl: './date-range.component.html',
   styleUrl: './date-range.component.css',
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class DateRangeComponent {
   rangeDates: Date[] = [];

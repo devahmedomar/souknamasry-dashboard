@@ -2,36 +2,37 @@
   position: relative;
 }
 
-::ng-deep .custom-panel {
+.custom-panel {
   border: none !important;
   box-shadow: none !important;
 }
 
-::ng-deep .custom-panel .p-datepicker {
+.custom-panel .p-datepicker {
   border: none;
   border-radius: 8px;
   box-shadow: none;
 }
 
-::ng-deep .custom-panel .p-datepicker-header {
+.custom-panel .p-datepicker-header {
   padding: 0.75rem;
   border-radius: 8px 8px 0 0;
 }
-::ng-deep .custom-panel .p-datepicker-header:focus {
+
+.custom-panel .p-datepicker-header:focus {
   outline: none;
   box-shadow: none;
   border: none;
 }
 
-::ng-deep .custom-panel .p-datepicker-calendar {
+.custom-panel .p-datepicker-calendar {
   margin: 0.5rem;
 }
 
-::ng-deep .custom-panel .p-datepicker-calendar td {
+.custom-panel .p-datepicker-calendar td {
   padding: 0.25rem;
 }
 
-::ng-deep ::ng-deep .custom-panel .p-datepicker-calendar td > span {
+.custom-panel .p-datepicker-calendar td > span {
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
@@ -39,24 +40,23 @@
   justify-content: center;
   border-radius: 6px;
   font-size: 0.875rem;
-
   cursor: pointer;
 }
 
-::ng-deep .custom-panel .p-datepicker-calendar td.p-datepicker-today > span {
+.custom-panel .p-datepicker-calendar td.p-datepicker-today > span {
   background-color: #604239;
   color: #fff;
   font-weight: 600;
 }
 
-::ng-deep .custom-panel .p-datepicker-calendar td > span.p-highlight {
+.custom-panel .p-datepicker-calendar td > span.p-highlight {
   background-color: #fd833d !important;
   color: white !important;
   border-radius: 6px !important;
 }
 
-::ng-deep .custom-panel .p-datepicker-prev,
-::ng-deep .custom-panel .p-datepicker-next {
+.custom-panel .p-datepicker-prev,
+.custom-panel .p-datepicker-next {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 6px;
@@ -66,44 +66,49 @@
   justify-content: center;
 }
 
-::ng-deep .custom-panel .p-datepicker-calendar th {
+.custom-panel .p-datepicker-calendar th {
   padding: 0.5rem 0.25rem;
   font-weight: 600;
-
   font-size: 0.875rem;
 }
 
+/* ✅ Responsive */
 @media (max-width: 640px) {
-  ::ng-deep .custom-panel .p-datepicker-calendar td > span {
+  .custom-panel .p-datepicker-calendar td > span {
     width: 2rem;
     height: 2rem;
     font-size: 0.8rem;
   }
 
-  ::ng-deep .custom-panel .p-datepicker-prev,
-  ::ng-deep .custom-panel .p-datepicker-next {
+  .custom-panel .p-datepicker-prev,
+  .custom-panel .p-datepicker-next {
     width: 2rem;
     height: 2rem;
   }
+
   .date-width {
     width: 64% !important;
   }
-  ::ng-deep .custom-panel {
+
+  .custom-panel {
     width: 12% !important;
     padding: 0px;
     margin-inline: 0;
   }
 }
+
 @media (min-width: 320px) and (max-width: 430px) {
   .date-width {
     width: 64% !important;
   }
-  ::ng-deep .custom-panel {
+
+  .custom-panel {
     width: 7% !important;
     padding: 0px;
     margin-inline: 5px;
   }
 }
+
 @media (min-width: 431px) and (max-width: 768px) {
   .date-width {
     width: 35% !important;
@@ -115,6 +120,7 @@
     width: 20% !important;
   }
 }
+
 @media (min-width: 1025px) and (max-width: 1440px) {
   .date-width {
     width: 16% !important;
