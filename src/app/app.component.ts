@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import {trigger,transition,style,animate} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SidebarComponent, ButtonModule, CommonModule],
+  imports: [RouterOutlet, SidebarComponent, ButtonModule, CommonModule,NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
  animations: [
