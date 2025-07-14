@@ -5,7 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { Checkbox, CheckboxModule } from 'primeng/checkbox';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -22,17 +22,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-    loginData = {
-    email: '',
+  // This object holds the user input values bound from the login form
+  loginData = {
+    emailOrPhone: '',
     password: '',
-    remember: false,
+    remember:false
   };
 
-  onSubmit(form: any) {
-    if (form.valid) {
-      console.log('Submitted:', this.loginData);
+  onSubmit(form: NgForm) {
+    const value = this.loginData.emailOrPhone;
+    // Check if the input is a number (i.e., phone number)
+    if (/^\d+$/.test(value)) {
+      console.log('Login with phone:', value);
     } else {
-      console.warn('Form Invalid');
+      console.log('Login with email:', value);
     }
   }
 }
