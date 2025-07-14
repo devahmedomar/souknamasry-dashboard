@@ -5,7 +5,7 @@
   height: 100vh;
   background-color: #F6F1EF;
 }
-#company-logo{
+/* #company-logo{
     position: absolute;
     top: 20px;
     margin-left:9rem;
@@ -13,13 +13,23 @@
     height: 92px;
     transform: scale(0.7);
     z-index: 10;
+} */
+
+#company-logo {
+  position: absolute;
+  top: 20px;
+  left: 23%;
+  transform: translateX(-50%) scale(0.7);
+  width: 298px;
+  height: 92px;
+  z-index: 10;
 }
 ::ng-deep .p-card, ::ng-deep.p-element{
     border-radius: 30px ;
 }
 .login-card {
   margin: 80px auto 0 auto;
-  width: 986px;
+  max-width: 986px;
   background: #fff;
   transform: scale(0.9);
 }
@@ -97,4 +107,80 @@
 }
 .login-image img {
   width: 90%;
+}
+
+
+/* Responsive Styles for Tablets and Mobile */
+
+
+@media (min-width: 768px) and (max-width:1023px) {
+  
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .login-image {
+    width: 100%;
+    margin-top: 10px;
+    order: 1;
+  }
+
+  #company-logo {
+    width: 220px;
+    height: 70px;
+    top: 20px;
+    left: 10%;
+    transform: translateX(-20%); 
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .login-button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .login-wrapper {
+    height: 130vh;
+  }
+  .login-container {
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .login-form {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .login-image {
+    width: 100%;
+    margin-top: 10px;
+    order: 1; 
+  }
+
+  .login-button {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  #company-logo {
+    width: 200px;
+    height: 60px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+  }
+  .options {
+    font-size: 0.75rem;
+  }
 }
