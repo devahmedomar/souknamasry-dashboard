@@ -178,6 +178,17 @@
     font-weight: bold;
     font-size: 10px;
   }
+  .my-navbar {
+    z-index: 1;
+    position: fixed;
+    margin-left: 240px;
+    height: 60px;
+    width: 85%;
+  }
+  .my-navbar .navbar-toggler {
+    margin-right: 150px !important;
+  }
+ 
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .dropdown button:focus {
@@ -221,8 +232,28 @@
     font-weight: bold;
     font-size: 10px;
   }
+  .my-navbar {
+    z-index: 1;
+    position: fixed;
+    margin-left: 240px;
+    height: 60px;
+    width: 85%;
+  }
+  .navbar-nav {
+    margin-right: 100px;
+  }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .my-navbar {
+    z-index: 1;
+    position: fixed;
+    margin-left: 260px;
+    height: 60px;
+    width: 83%;
+  }
+  .navbar-nav {
+    margin-right: 70px;
+  }
   .dropdown button:focus {
     outline: none !important;
     box-shadow: none !important;
