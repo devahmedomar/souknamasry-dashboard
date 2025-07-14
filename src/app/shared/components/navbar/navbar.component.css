@@ -188,7 +188,6 @@
   .my-navbar .navbar-toggler {
     margin-right: 150px !important;
   }
- 
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .dropdown button:focus {
@@ -253,6 +252,59 @@
   }
   .navbar-nav {
     margin-right: 70px;
+  }
+  .dropdown button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .form-control {
+    width: 30%;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Logo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .line-border {
+    width: 1px;
+    height: 30px;
+    background-color: rgb(96, 66, 57);
+    opacity: 0.8;
+    margin-inline: 15px;
+  }
+  .pi-bell,
+  .bi-chat-left-text {
+    color: #604239;
+    border: 1px solid #604239;
+    border-radius: 50%;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: 5px;
+  }
+  .admin-name {
+    color: #fd833d;
+    font-weight: bold;
+    font-size: 10px;
+  }
+}
+@media (min-width: 1441px) {
+  .my-navbar {
+    z-index: 1;
+    position: fixed;
+    margin-left: 260px;
+    height: 60px;
+    width: 89%;
+  }
+  .navbar-nav {
+    margin-right: 100px;
   }
   .dropdown button:focus {
     outline: none !important;
