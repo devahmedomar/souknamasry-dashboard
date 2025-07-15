@@ -4,14 +4,17 @@
   [rows]="5"
   [rowsPerPageOptions]="rowsPerPageOptions"
   paginatorPosition="bottom"
+  [alwaysShowPaginator]="false"
   scrollable="true"
   class="custom-table"
 >
   <!-- 🔹 Table Header -->
   <ng-template pTemplate="header">
     <tr>
-      <th *ngFor="let col of columns" [style.width]="col.width">{{ col.header }}</th>
-      <th style="width: 160px;">Actions</th>
+      <th *ngFor="let col of columns" [style.width]="col.width">
+        {{ col.header }}
+      </th>
+      <th style="width: 160px">Actions</th>
     </tr>
   </ng-template>
 
@@ -22,20 +25,25 @@
         <ng-container [ngSwitch]="col.field">
           <!-- Boolean Display -->
           <ng-container *ngSwitchCase="'hasOrder'">
-            {{ row[col.field] ? 'Yes' : 'No' }}
+            {{ row[col.field] ? "Yes" : "No" }}
           </ng-container>
 
           <!-- Status Field -->
           <ng-container *ngSwitchCase="'status'">
-            <span [ngClass]="{
-              'text-green-600': row.status === 'active',
-              'text-red-600': row.status !== 'active'
-            }">
-              <i class="pi" [ngClass]="{
-                'pi-check-circle': row.status === 'active',
-                'pi-times-circle': row.status !== 'active'
-              }"></i>
-              {{ row.status === 'active' ? 'Active' : 'Inactive' }}
+            <span
+              [ngClass]="{
+                'text-green-600': row.status === 'active',
+                'text-red-600': row.status !== 'active'
+              }"
+            >
+              <i
+                class="pi"
+                [ngClass]="{
+                  'pi-check-circle': row.status === 'active',
+                  'pi-times-circle': row.status !== 'active'
+                }"
+              ></i>
+              {{ row.status === "active" ? "Active" : "Inactive" }}
             </span>
           </ng-container>
 

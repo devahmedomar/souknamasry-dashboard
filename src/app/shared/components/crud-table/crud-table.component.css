@@ -15,6 +15,7 @@
   padding: 16px 40px;
   vertical-align: middle;
   white-space: nowrap;
+  background-color: #fff;
 }
 
 /* ✅ Row hover effect */
@@ -67,7 +68,7 @@
 }
 
 ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background-color: #CA4B02;
+  background-color: #ca4b02;
   color: white;
 }
 
@@ -91,7 +92,7 @@
 
 /* ✅ Dropdown icon inside paginator */
 ::ng-deep .p-paginator .p-dropdown .p-dropdown-trigger {
-  color: #CA4B02;
+  color: #ca4b02;
 }
 
 /* ✅ Selected value label inside dropdown */
@@ -118,7 +119,7 @@
 ::ng-deep .p-dropdown-item.p-highlight,
 ::ng-deep .p-dropdown-item:hover {
   background-color: #f2f2f2;
-  color: #CA4B02;
+  color: #ca4b02;
 }
 
 /* ✅ Responsive for mobile (768px) */
