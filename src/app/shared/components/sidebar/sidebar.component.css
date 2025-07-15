@@ -7,7 +7,7 @@
 
 /* ================= Sidebar Container ================= */
 .sidebar {
-  width: 260px;
+  width: 240px;
   background-color: #ffffff;
   padding: 0.1rem 1rem;
   display: flex;
@@ -107,7 +107,7 @@
 
 /* ================= Responsive ================= */
 
-/* Phones */
+/* ================= 📱 Mobile: less than 576px ================= */
 @media (max-width: 575.98px) {
   .layout {
     flex-direction: column;
@@ -125,39 +125,76 @@
 
   .main-content {
     padding: 1rem;
-    margin-top: 100px; 
+    margin-top: 100px;
+  }
+
+  .logo img {
+    width: 110px;
+  }
+
+  .icon {
+    font-size: 22px;
+    width: 42px;
+    height: 42px;
+    margin-top: 6px;
+  }
+
+  .logout-btn {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+/* ================= 💻 Tablet: 576px to 1024px ================= */
+@media (min-width: 576px) and (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+    padding: 0.7rem 1rem;
+  }
+
+  .logo img {
+    width: 130px;
   }
 
   .icon {
     font-size: 24px;
-  }
-
-  .logout-btn {
-    font-size: 15px;
-    padding: 10px;
-  }
-
-  .logo img {
-    width: 120px;
-  }
-}
-
-/* Tablets */
-@media (min-width: 576px) and (max-width: 1024px) {
-  .sidebar {
-    width: 240px;
-    padding: 0.5rem 0.8rem;
-  }
-
-  .logo img {
-    width: 140px;
+    width: 46px;
+    height: 46px;
   }
 
   .logout-btn {
     font-size: 16px;
+    padding: 12px 10px;
+  }
+
+  .main-content {
+    padding: 1.2rem;
+  }
+}
+
+/* ================= 🖥️ Desktop: more than 1024px ================= */
+@media (min-width: 1025px) {
+  .sidebar {
+    width: 240px;
+    padding: 0.1rem 1rem;
+  }
+
+  .logo img {
+    width: 150px;
   }
 
   .icon {
-    font-size: 28px;
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .logout-btn {
+    font-size: 18px;
+    padding: 15px 10px;
+  }
+
+  .main-content {
+    padding: 1.5rem;
   }
 }

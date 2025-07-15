@@ -73,3 +73,64 @@ ul ul > li {
   vertical-align: middle;
 }
 
+/* 💻 Tablet (from 576px to 1024px) */
+@media (min-width: 576px) and (max-width: 1024px) {
+  a {
+    font-size: 20px;
+    padding: 10px 16px;
+  }
+
+  .sidebar ul ul a {
+    font-size: 13.5px;
+    padding: 7px 11px;
+  }
+
+  .icon {
+    font-size: 21px;
+    margin-right: 7px;
+  }
+
+  ul {
+    width: 200px;
+    padding-left: 12px;
+  }
+
+  ul > li {
+    margin-bottom: 22px;
+  }
+
+  ul ul > li {
+    margin-bottom: 18px;
+  }
+}
+
+/* 🖥️ Desktop (greater than 1024px) */
+@media (min-width: 1025px) {
+  a {
+    font-size: 22px;
+    padding: 12px 18px;
+  }
+
+  .sidebar ul ul a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .icon {
+    font-size: 22px;
+    margin-right: 8px;
+  }
+
+  ul {
+    width: 220px;
+    padding-left: 15px;
+  }
+
+  ul > li {
+    margin-bottom: 25px;
+  }
+
+  ul ul > li {
+    margin-bottom: 20px;
+  }
+}
