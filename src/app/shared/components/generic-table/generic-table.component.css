@@ -1,0 +1,61 @@
+/*  Container  */
+.table-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+              0 8px 20px rgba(0, 0, 0, 0.08); /* Soft professional shadow */
+  padding: 16px;
+  overflow: auto;
+}
+
+/*  Table base styles */
+.custom-table {
+  width: 100%;
+  border-collapse: separate; /* Allows border-radius to work */
+  border-spacing: 0;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 12px;
+}
+
+/*  Table header (thead) */
+.custom-table thead {
+  background-color: transparent;
+  color: #444;
+}
+
+/*  Header row background */
+.custom-table thead tr {
+  background-color: #F6F1EF;
+  border-radius: 12px;
+}
+
+/*  Rounded corners on header */
+.custom-table thead th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.custom-table thead th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/*  Header cell styles */
+.custom-table thead th {
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/*  Body cell styles */
+.custom-table td {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/*  Row hover effect */
+.custom-table tbody tr:hover {
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease-in-out;
+}
