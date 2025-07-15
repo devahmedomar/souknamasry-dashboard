@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './generic-table.component.css'
 })
 export class GenericTableComponent {
+@Input() tableTitle: string = '';
 @Input() columns: string[] = [];
 @Input() data: any[] = [];
 

@@ -1,36 +1,48 @@
-/*  Container  */
+/*  Table Title */
+.table-inner-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  padding: 8px 12px 16px;
+  border-bottom: none;
+}
+
+/*  Table Container */
 .table-wrapper {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
-              0 8px 20px rgba(0, 0, 0, 0.08); /* Soft professional shadow */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 20px rgba(0, 0, 0, 0.08); /* Soft professional shadow */
   padding: 16px;
   overflow: auto;
 }
 
-/*  Table base styles */
+/*  Base Table Styling */
 .custom-table {
   width: 100%;
-  border-collapse: separate; /* Allows border-radius to work */
+  border-collapse: separate; /* Allows rounded corners */
   border-spacing: 0;
   text-align: center;
   font-size: 15px;
   border-radius: 12px;
+  border: none;
 }
 
-/*  Table header (thead) */
+/*  Table Header */
 .custom-table thead {
   background-color: transparent;
   color: #444;
+  border-bottom: none;
 }
 
-/*  Header row background */
+/*  Header Row Background */
 .custom-table thead tr {
   background-color: #F6F1EF;
   border-radius: 12px;
 }
 
-/*  Rounded corners on header */
+/*  Rounded Corners on Header Cells */
 .custom-table thead th:first-child {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
@@ -41,21 +53,32 @@
   border-bottom-right-radius: 12px;
 }
 
-/*  Header cell styles */
+/*  Header Cell Styles */
 .custom-table thead th {
   padding: 12px;
   font-weight: 600;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: none;
 }
 
-/*  Body cell styles */
+/*  Table Body Cell Styles */
 .custom-table td {
   padding: 10px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: none;
 }
 
-/*  Row hover effect */
+/*  Row Hover Effect */
 .custom-table tbody tr:hover {
   background-color: #f9f9f9;
   transition: background-color 0.2s ease-in-out;
+}
+
+/*  Rounded Corners on Hovered Row */
+.custom-table tbody tr:hover td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.custom-table tbody tr:hover td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }

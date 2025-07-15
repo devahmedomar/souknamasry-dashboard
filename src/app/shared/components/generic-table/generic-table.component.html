@@ -3,6 +3,12 @@
   [style.width]="tableWidth"
   [style.height]="tableHeight"
 >
+  <!-- header-->
+  <div *ngIf="tableTitle" class="table-inner-title">
+    {{ tableTitle }}
+  </div>
+
+  <!-- Table-->
   <table class="custom-table">
     <thead>
       <tr>
@@ -11,7 +17,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of data">
-        <td *ngFor="let col of columns">{{ row[col] }}</td>
+        <td *ngFor="let col of columns">
+          {{ row[col] }}
+        </td>
       </tr>
     </tbody>
   </table>
