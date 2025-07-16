@@ -18,7 +18,7 @@ export class UsersComponent {
     { field: 'phone', header: 'Phone Number', width: '150px' },
     { field: 'hasOrder', header: 'Has Order?', width: '120px' },
     { field: 'email', header: 'Email', width: '250px' },
-      {field:'actions', header:'actions', width:"120px"  }
+      {field:'actions', header:'Actions', width:"100px"  }
   ];
 
   // ✅ Sample data to display in the table

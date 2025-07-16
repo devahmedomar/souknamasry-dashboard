@@ -1,5 +1,5 @@
 /* ✅ Main table container */
-.custom-table ::ng-deep .p-datatable {
+.custom-table .p-datatable {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -10,8 +10,8 @@
 }
 
 /* ✅ Table headers and cells */
-.custom-table ::ng-deep .p-datatable-thead > tr > th,
-.custom-table ::ng-deep .p-datatable-tbody > tr > td {
+.custom-table .p-datatable-thead > tr > th,
+.custom-table .p-datatable-tbody > tr > td {
   padding: 16px 40px;
   vertical-align: middle;
   white-space: nowrap;
@@ -19,12 +19,12 @@
 }
 
 /* ✅ Row hover effect */
-.custom-table ::ng-deep .p-datatable-tbody > tr:hover {
+.custom-table .p-datatable-tbody > tr:hover {
   background-color: #f9fcff;
 }
 
 /* ✅ Action buttons styling */
-.custom-table ::ng-deep .p-button {
+.custom-table .p-button {
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
   font-weight: 500;
@@ -32,7 +32,7 @@
 }
 
 /* ✅ Action cell layout */
-.custom-table ::ng-deep .p-datatable-tbody > tr > td.actions-cell {
+.custom-table .p-datatable-tbody > tr > td.actions-cell {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -51,7 +51,7 @@
 }
 
 /* ✅ Paginator styling */
-::ng-deep .p-paginator {
+.p-paginator {
   padding: 10px 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-size: 14px;
@@ -60,7 +60,7 @@
   background: transparent;
 }
 
-::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+.p-paginator .p-paginator-pages .p-paginator-page {
   border: none;
   margin: 0 4px;
   background-color: #fff;
@@ -68,21 +68,21 @@
   border-radius: 6px;
 }
 
-::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
   background-color: #ca4b02;
   color: white;
 }
 
 /* ✅ Enable horizontal scroll on small screens */
-.custom-table ::ng-deep .p-datatable-wrapper {
+.custom-table .p-datatable-wrapper {
   overflow-x: auto;
 }
-.custom-table ::ng-deep .p-datatable-table {
+.custom-table .p-datatable-table {
   min-width: 600px;
 }
 
 /* ✅ Dropdown inside paginator */
-::ng-deep .p-paginator .p-dropdown {
+.p-paginator .p-dropdown {
   border-radius: 8px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -92,61 +92,62 @@
 }
 
 /* ✅ Dropdown icon inside paginator */
-::ng-deep .p-paginator .p-dropdown .p-dropdown-trigger {
+.p-paginator .p-dropdown .p-dropdown-trigger {
   color: #ca4b02;
 }
 
 /* ✅ Selected value label inside dropdown */
-::ng-deep .p-paginator .p-dropdown .p-dropdown-label {
+.p-paginator .p-dropdown .p-dropdown-label {
   color: #333;
   font-weight: 500;
   padding: 4px 10px;
 }
 
 /* ✅ Dropdown panel styling */
-::ng-deep .p-dropdown-panel {
+.p-dropdown-panel {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* ✅ Dropdown item styling */
-::ng-deep .p-dropdown-item {
-  padding: 10px 12px;
+.p-dropdown-item {
+  padding: 10px 15px;
   font-size: 14px;
   color: #333;
 }
 
 /* ✅ Highlight and hover effects for dropdown items */
-::ng-deep .p-dropdown-item.p-highlight,
-::ng-deep .p-dropdown-item:hover {
+.p-dropdown-item.p-highlight,
+.p-dropdown-item:hover {
   background-color: #f2f2f2;
   color: #ca4b02;
 }
 
 /* ✅ Responsive for mobile (768px) */
 @media (max-width: 768px) {
-  .custom-table ::ng-deep .p-datatable-wrapper {
+  .custom-table .p-datatable-wrapper {
     -webkit-overflow-scrolling: touch;
   }
 
-  .custom-table ::ng-deep .p-datatable-thead > tr > th,
-  .custom-table ::ng-deep .p-datatable-tbody > tr > td {
+  .custom-table .p-datatable-thead > tr > th,
+  .custom-table .p-datatable-tbody > tr > td {
     padding: 12px 20px;
     font-size: 13px;
   }
 
-  .custom-table ::ng-deep .p-button {
+  .custom-table .p-button {
     padding: 0.2rem 0.4rem;
     font-size: 12px;
   }
 
-  .custom-table ::ng-deep .p-datatable-tbody > tr > td.actions-cell {
+  .custom-table .p-datatable-tbody > tr > td.actions-cell {
     gap: 6px;
     padding: 12px 16px;
   }
 }
+
 @media (min-width: 769px) and (max-width: 1024px) {
-  .custom-table ::ng-deep .p-datatable-table {
+  .custom-table .p-datatable-table {
     width: 95% !important;
   }
 }

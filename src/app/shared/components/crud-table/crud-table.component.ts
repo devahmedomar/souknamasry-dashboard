@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Inject , ViewEncapsulation } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -10,7 +10,8 @@ import { PLATFORM_ID } from '@angular/core';
   standalone: true,
   imports: [CommonModule, TableModule, ButtonModule, PaginatorModule],
   templateUrl: './crud-table.component.html',
-  styleUrl: './crud-table.component.css'
+  styleUrl: './crud-table.component.css',
+   encapsulation: ViewEncapsulation.None
 })
 export class CrudTableComponent {
   @Input() columns: { field: string; header: string; width?: string }[] = [];
