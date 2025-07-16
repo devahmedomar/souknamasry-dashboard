@@ -13,11 +13,12 @@ export class UsersComponent {
 
   // ✅ Columns definition for the CRUD table
   tableColumns = [
-    { field: 'name', header: 'Name', width: '150px' },
+    { field: 'name', header: 'Name', width: '150px', },
     { field: 'status', header: 'Status', width: '120px' },
     { field: 'phone', header: 'Phone Number', width: '150px' },
     { field: 'hasOrder', header: 'Has Order?', width: '120px' },
-    { field: 'email', header: 'Email', width: '250px' }
+    { field: 'email', header: 'Email', width: '250px' },
+      {field:'actions', header:'actions', width:"120px"  }
   ];
 
   // ✅ Sample data to display in the table
