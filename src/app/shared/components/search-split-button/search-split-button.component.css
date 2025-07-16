@@ -94,6 +94,8 @@
   .search-bar {
     width: 190px;
     margin-left: 48px;
+    margin-right: 8px;
+    transform: translateX(-4px);
   }
   .icon-button {
     transform: translateX(8px);
@@ -111,7 +113,7 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .search-bar {
     width: 300px;
-    margin-left: 40px;
+    margin-left: 5px;
   }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
@@ -119,5 +121,4 @@
     width: 300px;
     margin-left: 50px;
   }
-
 }
