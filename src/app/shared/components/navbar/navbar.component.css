@@ -12,9 +12,45 @@
 .show {
   display: block;
 }
-
+.line-border {
+  width: 1px;
+  height: 30px;
+  background-color: rgb(96, 66, 57);
+  opacity: 0.8;
+  margin-inline: 15px;
+}
+.pi-bell,
+.bi-chat-left-text {
+  color: #604239;
+  border: 1px solid #604239;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 5px;
+}
+.admin-name {
+  color: #fd833d;
+  font-weight: bold;
+  font-size: 10px;
+}
+.Logo {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 /**** media query ****/
-@media (min-width: 320px) and (max-width: 430px) {
+@media (min-width: 320px) and (max-width: 426px) {
   .dropdown button:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -26,17 +62,7 @@
     background-position: center;
     background-size: 100%;
   }
-  .pi-bell,
-  .bi-chat-left-text {
-    color: #604239;
-    border: 1px solid #604239;
-    border-radius: 50%;
-    padding: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: 5px;
-  }
+
   .pi-bars {
     font-size: 1.5rem;
     color: #402c26;
@@ -96,11 +122,80 @@
     font-size: 10px;
   }
 }
-@media (min-width: 431px) and (max-width: 768px) {
+@media (min-width: 427px) and (max-width: 576px) {
   .dropdown button:focus {
     outline: none !important;
     box-shadow: none !important;
   }
+  .menu-bar {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+
+  .pi-bars {
+    font-size: 1.5rem;
+    color: #402c26;
+    text-align: center;
+  }
+  .navbar-toggler {
+    border: 1px solid #402c26 !important;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+  }
+  .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .my-navbar .navbar-collapse {
+    padding-block: 20px;
+  }
+
+  input {
+    width: 50%;
+  }
+  .line-border {
+    width: 1px;
+    height: 30px;
+    background-color: rgb(96, 66, 57);
+    opacity: 0.8;
+    margin-block: 5px;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Logo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 15px;
+    align-items: center;
+  }
+  .admin-content {
+    text-align: center;
+  }
+  .Logo img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .admin-name {
+    color: #fd833d;
+    font-weight: bold;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
   .menu-bar {
     display: inline-block;
     vertical-align: middle;
@@ -128,9 +223,6 @@
   .my-navbar .navbar-collapse {
     padding-block: 30px;
   }
-  input {
-    width: 40%;
-  }
 
   ul {
     display: flex;
@@ -155,14 +247,7 @@
     display: block;
     margin-bottom: 10px;
   }
-  .line-border {
-    width: 1px;
-    height: 30px;
-    background-color: rgb(96, 66, 57);
-    opacity: 0.8;
-    margin-inline: 15px;
-    margin-block: 5px;
-  }
+
   .Logo {
     display: flex;
     flex-wrap: wrap;
@@ -173,30 +258,24 @@
   .admin-content {
     text-align: center;
   }
-  .admin-name {
-    color: #fd833d;
-    font-weight: bold;
-    font-size: 10px;
-  }
+
   .my-navbar {
     z-index: 1;
     position: fixed;
     margin-left: 220px;
-    height: 60px;
+    height: 87px;
     width: 89%;
   }
   .my-navbar .navbar-toggler {
     margin-right: 150px !important;
   }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 992px) {
   .dropdown button:focus {
     outline: none !important;
     box-shadow: none !important;
   }
-  .form-control {
-    width: 30%;
-  }
+
   ul {
     display: flex;
     justify-content: center;
@@ -204,33 +283,97 @@
   }
   .Logo {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 15px;
+    align-items: center;
+  }
+
+  .menu-bar {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .pi-bars {
+    font-size: 1.5rem;
+    color: #402c26;
+    text-align: center;
+  }
+  .navbar-toggler {
+    border: 1px solid #402c26 !important;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    margin-right: 140px;
+  }
+  .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .my-navbar {
+    z-index: 1;
+    position: fixed;
+    margin-left: 220px;
+    height: 87px;
+    width: 89%;
+  }
+  .navbar-nav {
+    margin-right: 120px;
+    margin-top: 60px;
+  }
+  .admin-content {
+    text-align: center;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  .dropdown button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .Logo {
+    display: flex;
     gap: 15px;
     align-items: center;
   }
 
-  .line-border {
-    width: 1px;
-    height: 30px;
-    background-color: rgb(96, 66, 57);
-    opacity: 0.8;
-    margin-inline: 15px;
+  .menu-bar {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
   }
-  .pi-bell,
-  .bi-chat-left-text {
-    color: #604239;
-    border: 1px solid #604239;
-    border-radius: 50%;
-    padding: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: 5px;
+  .pi-bars {
+    font-size: 1.5rem;
+    color: #402c26;
+    text-align: center;
   }
-  .admin-name {
-    color: #fd833d;
-    font-weight: bold;
-    font-size: 10px;
+  .navbar-toggler {
+    border: 1px solid #402c26 !important;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    margin-right: 140px;
   }
+  .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
   .my-navbar {
     z-index: 1;
     position: fixed;
@@ -251,48 +394,7 @@
     width: 85%;
   }
   .navbar-nav {
-    margin-right: 70px;
-  }
-  .dropdown button:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  .form-control {
-    width: 30%;
-  }
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .Logo {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .line-border {
-    width: 1px;
-    height: 30px;
-    background-color: rgb(96, 66, 57);
-    opacity: 0.8;
-    margin-inline: 15px;
-  }
-  .pi-bell,
-  .bi-chat-left-text {
-    color: #604239;
-    border: 1px solid #604239;
-    border-radius: 50%;
-    padding: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: 5px;
-  }
-  .admin-name {
-    color: #fd833d;
-    font-weight: bold;
-    font-size: 10px;
+    margin-right: 80px;
   }
 }
 @media (min-width: 1441px) {
@@ -305,46 +407,5 @@
   }
   .navbar-nav {
     margin-right: 100px;
-  }
-  .dropdown button:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  .form-control {
-    width: 30%;
-  }
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .Logo {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .line-border {
-    width: 1px;
-    height: 30px;
-    background-color: rgb(96, 66, 57);
-    opacity: 0.8;
-    margin-inline: 15px;
-  }
-  .pi-bell,
-  .bi-chat-left-text {
-    color: #604239;
-    border: 1px solid #604239;
-    border-radius: 50%;
-    padding: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: 5px;
-  }
-  .admin-name {
-    color: #fd833d;
-    font-weight: bold;
-    font-size: 10px;
   }
 }
