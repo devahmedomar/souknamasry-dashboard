@@ -1,1 +1,35 @@
-<p>generic-table works!</p>
+<div
+  class="table-wrapper"
+  [style.width]="tableWidth"
+  [style.height]="tableHeight"
+>
+  <!-- header-->
+ <div *ngIf="tableTitle" class="table-inner-title" [attr.title]="titleTooltip">
+  <i 
+    *ngIf="tableTitle.includes('Top Shop Owners')" 
+    class="pi pi-star-fill icon-style"
+  ></i>
+  <i 
+    *ngIf="tableTitle.includes('Recent Orders')" 
+    class="pi pi-shopping-cart icon-style"
+  ></i>
+  {{ tableTitle }}
+</div>
+
+
+  <!-- Table-->
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns">{{ col }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let col of columns">
+          {{ row[col] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

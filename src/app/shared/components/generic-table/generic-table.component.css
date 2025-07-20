@@ -1,0 +1,175 @@
+/*  Table Title */
+.table-inner-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  padding: 8px 12px 16px;
+  border-bottom: none;
+}
+
+/*  Table Container */
+.table-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 20px rgba(0, 0, 0, 0.08); /* Soft professional shadow */
+  padding: 16px;
+  overflow: auto;
+}
+
+/*  Base Table Styling */
+.custom-table {
+  width: 100%;
+  border-collapse: separate; /* Allows rounded corners */
+  border-spacing: 0;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 12px;
+  border: none;
+}
+
+/*  Table Header */
+.custom-table thead {
+  background-color: transparent;
+  color: #444;
+  border-bottom: none;
+}
+
+/*  Header Row Background */
+.custom-table thead tr {
+  background-color: #F6F1EF;
+  border-radius: 12px;
+}
+
+/*  Rounded Corners on Header Cells */
+.custom-table thead th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.custom-table thead th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/*  Header Cell Styles */
+.custom-table thead th {
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+/*  Table Body Cell Styles */
+.custom-table td {
+  padding: 10px;
+  border-bottom: none;
+}
+
+/*  Row Hover Effect */
+.custom-table tbody tr:hover {
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/*  Rounded Corners on Hovered Row */
+.custom-table tbody tr:hover td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.custom-table tbody tr:hover td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.table-inner-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: help;
+}
+
+.icon-style {
+  color: #f59e0b; 
+  font-size: 1.2rem;
+}
+
+/* 📱 Mobile (less than 576px) */
+@media (max-width: 575.98px) {
+  .table-inner-title {
+    font-size: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .custom-table {
+    font-size: 13px;
+  }
+
+  .custom-table thead th,
+  .custom-table td {
+    padding: 8px;
+  }
+
+  .table-wrapper {
+    padding: 12px;
+  }
+
+  .icon-style {
+    font-size: 1rem;
+  }
+}
+
+/* 💻 Tablet (576px to 1024px) */
+@media (min-width: 576px) and (max-width: 1024px) {
+  .table-inner-title {
+    font-size: 18px;
+    gap: 8px;
+  }
+
+  .custom-table {
+    font-size: 14px;
+  }
+
+  .custom-table thead th,
+  .custom-table td {
+    padding: 10px;
+  }
+
+  .table-wrapper {
+    padding: 14px;
+  }
+
+  .icon-style {
+    font-size: 1.1rem;
+  }
+}
+
+/* 🖥️ Large Screens (1024px and up) */
+@media (min-width: 1025px) {
+  .table-inner-title {
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  .custom-table {
+    font-size: 15px;
+  }
+
+  .custom-table thead th,
+  .custom-table td {
+    padding: 12px;
+  }
+
+  .table-wrapper {
+    padding: 16px;
+  }
+
+  .icon-style {
+    font-size: 1.2rem;
+  }
+}
