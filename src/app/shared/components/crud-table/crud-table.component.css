@@ -1,4 +1,7 @@
 /* ✅ Main table container */
+.custom-table {
+   font-family: system-ui, sans-serif;
+}
 .custom-table .p-datatable {
   border-radius: 12px;
   overflow: hidden;
