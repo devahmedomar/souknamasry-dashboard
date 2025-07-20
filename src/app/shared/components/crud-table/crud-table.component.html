@@ -1,1 +1,84 @@
-<p>crud-table works!</p>
+<p-table
+  [value]="data"
+  [paginator]="true"
+  [rows]="5"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  paginatorPosition="bottom"
+  [alwaysShowPaginator]="false"
+  scrollable="true"
+  class="custom-table"
+>
+  <!-- 🔹 Table Header -->
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of columns" [style.width]="col.width">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+
+  <!-- 🔹 Table Body -->
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <td *ngFor="let col of columns">
+        <ng-container [ngSwitch]="col.field">
+          <!-- Boolean Display -->
+          <ng-container *ngSwitchCase="'hasOrder'">
+            {{ row[col.field] ? "Yes" : "No" }}
+          </ng-container>
+
+          <!-- Status Field -->
+          <ng-container *ngSwitchCase="'status'">
+            <span
+              [ngClass]="{
+                'text-green-600': row.status === 'active',
+                'text-red-600': row.status !== 'active'
+              }"
+            >
+              <i
+                class="pi"
+                [ngClass]="{
+                  'pi-check-circle': row.status === 'active',
+                  'pi-times-circle': row.status !== 'active'
+                }"
+              ></i>
+              {{ row.status === "active" ? "Active" : "Inactive" }}
+            </span>
+          </ng-container>
+
+          <!-- Default Case -->
+          <ng-container *ngSwitchDefault>
+            {{ row[col.field] }}
+          </ng-container>
+        </ng-container>
+      </td>
+
+      <!-- 🔹 Actions -->
+      <td class="actions-cell">
+        <button
+          pButton
+          icon="pi pi-eye"
+          class="p-button-sm p-button-text p-button-info"
+          (click)="onView.emit(row)"
+          tooltip="View"
+        ></button>
+
+        <button
+          pButton
+          icon="pi pi-pencil"
+          class="p-button-sm p-button-text p-button-warning"
+          (click)="onEdit.emit(row)"
+          tooltip="Edit"
+        ></button>
+
+        <button
+          pButton
+          icon="pi pi-trash"
+          class="p-button-sm p-button-text p-button-danger"
+          (click)="onDelete.emit(row)"
+          tooltip="Delete"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
