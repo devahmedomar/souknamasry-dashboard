@@ -82,3 +82,94 @@
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+.table-inner-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: help;
+}
+
+.icon-style {
+  color: #f59e0b; 
+  font-size: 1.2rem;
+}
+
+/* 📱 Mobile (less than 576px) */
+@media (max-width: 575.98px) {
+  .table-inner-title {
+    font-size: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .custom-table {
+    font-size: 13px;
+  }
+
+  .custom-table thead th,
+  .custom-table td {
+    padding: 8px;
+  }
+
+  .table-wrapper {
+    padding: 12px;
+  }
+
+  .icon-style {
+    font-size: 1rem;
+  }
+}
+
+/* 💻 Tablet (576px to 1024px) */
+@media (min-width: 576px) and (max-width: 1024px) {
+  .table-inner-title {
+    font-size: 18px;
+    gap: 8px;
+  }
+
+  .custom-table {
+    font-size: 14px;
+  }
+
+  .custom-table thead th,
+  .custom-table td {
+    padding: 10px;
+  }
+
+  .table-wrapper {
+    padding: 14px;
+  }
+
+  .icon-style {
+    font-size: 1.1rem;
+  }
+}
+
+/* 🖥️ Large Screens (1024px and up) */
+@media (min-width: 1025px) {
+  .table-inner-title {
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  .custom-table {
+    font-size: 15px;
+  }
+
+  .custom-table thead th,
+  .custom-table td {
+    padding: 12px;
+  }
+
+  .table-wrapper {
+    padding: 16px;
+  }
+
+  .icon-style {
+    font-size: 1.2rem;
+  }
+}

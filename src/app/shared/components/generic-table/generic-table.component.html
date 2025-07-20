@@ -4,9 +4,18 @@
   [style.height]="tableHeight"
 >
   <!-- header-->
-  <div *ngIf="tableTitle" class="table-inner-title">
-    {{ tableTitle }}
-  </div>
+ <div *ngIf="tableTitle" class="table-inner-title" [attr.title]="titleTooltip">
+  <i 
+    *ngIf="tableTitle.includes('Top Shop Owners')" 
+    class="pi pi-star-fill icon-style"
+  ></i>
+  <i 
+    *ngIf="tableTitle.includes('Recent Orders')" 
+    class="pi pi-shopping-cart icon-style"
+  ></i>
+  {{ tableTitle }}
+</div>
+
 
   <!-- Table-->
   <table class="custom-table">

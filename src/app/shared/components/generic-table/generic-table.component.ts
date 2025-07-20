@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
 })
 export class GenericTableComponent {
 @Input() tableTitle: string = '';
+@Input() titleTooltip: string = '';
 @Input() columns: string[] = [];
 @Input() data: any[] = [];
 

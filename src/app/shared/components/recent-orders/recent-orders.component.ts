@@ -9,7 +9,7 @@ import { GenericTableComponent } from '../generic-table/generic-table.component'
   styleUrl: './recent-orders.component.css'
 })
 export class RecentOrdersComponent {
-
+   recentOrdersTitle = `Recent Orders`;
    columns: string[] = ['id', 'customerName','productname', 'orderDate', 'status', 'total'];
   data = [
     {
