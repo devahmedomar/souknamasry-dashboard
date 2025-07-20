@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CrudTableComponent } from "./shared/components/crud-table/crud-table.component";
-import { UsersComponent } from "./pages/users/users.component";
+import { NavbarComponent } from "./shared/components/navbar/navbar.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CrudTableComponent, UsersComponent],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
