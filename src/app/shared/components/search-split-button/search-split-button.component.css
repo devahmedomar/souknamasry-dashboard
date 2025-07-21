@@ -135,7 +135,7 @@
 @media (min-width: 576px) and (max-width: 768px) {
   .search-bar {
     width: 250px;
-    margin-left: 35px;
+    margin-left: 5px;
   }
   .icon-button {
     transform: translateX(32px);
