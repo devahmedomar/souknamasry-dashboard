@@ -12,11 +12,6 @@ import * as XLSX from 'xlsx';
 })
 export class ReportButtonComponent {
   isDropdownOpen = false;
-  timespan!: any;
-  prefix!: any;
-  fileName!: any;
-  targetTable!: any;
-  wb!: any;
   readonly platformId = inject(PLATFORM_ID);
 
   toggleDropdown(): void {
@@ -31,18 +26,18 @@ export class ReportButtonComponent {
 
   exportToExcel(tableId: string, name: string): void {
     
-    this.timespan = new Date().toISOString();
-    this.prefix = name || "Export Result";
-    this.fileName = `${this.prefix}-${this.timespan}`;
-    this.targetTable = document.getElementById(tableId);
+   const timespan = new Date().toISOString();
+   const prefix = name || "Export Result";
+   const fileName = `${prefix}-${timespan}`;
+   const targetTable = document.getElementById(tableId);
     
-    if (this.targetTable != null) {
+    if (targetTable != null) {
       try {
-        this.wb = XLSX.utils.table_to_book(
-          this.targetTable, 
-          <XLSX.Table2SheetOpts>{ sheet: this.prefix }
+        const wb = XLSX.utils.table_to_book(
+          targetTable, 
+          <XLSX.Table2SheetOpts>{ sheet: prefix }
         );
-        XLSX.writeFile(this.wb, `${this.fileName}.xlsx`);
+        XLSX.writeFile(wb, `${fileName}.xlsx`);
       } catch (error) {
         console.error('Error exporting to Excel:', error);
       }
