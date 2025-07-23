@@ -1,0 +1,12 @@
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.breadcrumb-item {
+  margin-right: 10px;
+}
+.breadcrumb-item a {
+  text-decoration: none;
+  color: black;
+}
