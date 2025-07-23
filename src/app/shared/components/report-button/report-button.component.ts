@@ -1,6 +1,5 @@
-import { NgIf } from '@angular/common';
-import { Component, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, PLATFORM_ID, ElementRef, ViewChild } from '@angular/core';
+import { isPlatformBrowser, NgIf } from '@angular/common';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -13,6 +12,8 @@ import * as XLSX from 'xlsx';
 export class ReportButtonComponent {
   isDropdownOpen = false;
   readonly platformId = inject(PLATFORM_ID);
+
+ 
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
