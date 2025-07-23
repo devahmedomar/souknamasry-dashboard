@@ -1,6 +1,5 @@
-import { NgIf } from '@angular/common';
-import { Component, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, PLATFORM_ID, ElementRef, ViewChild } from '@angular/core';
+import { isPlatformBrowser, NgIf } from '@angular/common';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -12,42 +11,30 @@ import * as XLSX from 'xlsx';
 })
 export class ReportButtonComponent {
   isDropdownOpen = false;
-  timespan!: any;
-  prefix!: any;
-  fileName!: any;
-  targetTable!: any;
-  wb!: any;
   readonly platformId = inject(PLATFORM_ID);
+
+  @ViewChild('exportTable', { static: false }) exportTableRef!: ElementRef;
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  executeExport(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.exportToExcel("data-table", "report");
-    }
-  }
+  onExportClick(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  exportToExcel(tableId: string, name: string): void {
-    
-    this.timespan = new Date().toISOString();
-    this.prefix = name || "Export Result";
-    this.fileName = `${this.prefix}-${this.timespan}`;
-    this.targetTable = document.getElementById(tableId);
-    
-    if (this.targetTable != null) {
-      try {
-        this.wb = XLSX.utils.table_to_book(
-          this.targetTable, 
-          <XLSX.Table2SheetOpts>{ sheet: this.prefix }
-        );
-        XLSX.writeFile(this.wb, `${this.fileName}.xlsx`);
-      } catch (error) {
-        console.error('Error exporting to Excel:', error);
-      }
-    } else {
-      console.warn(`Table with ID '${tableId}' not found`);
+    const table: HTMLElement = this.exportTableRef?.nativeElement;
+    if (!table) {
+      console.warn("Table not found for export");
+      return;
+    }
+
+    const timespan = new Date().toISOString();
+    const fileName = `report-${timespan}`;
+    try {
+      const wb: XLSX.WorkBook = XLSX.utils.table_to_book(table, { sheet: 'report' });
+      XLSX.writeFile(wb, `${fileName}.xlsx`);
+    } catch (err) {
+      console.error('Excel export error:', err);
     }
   }
 }
