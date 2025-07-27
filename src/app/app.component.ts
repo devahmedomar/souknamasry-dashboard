@@ -12,14 +12,14 @@ import {trigger,transition,style,animate} from '@angular/animations';
   imports: [RouterOutlet, SidebarComponent, ButtonModule, CommonModule,NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
- animations: [
+animations: [
   trigger('sidebarAnimation', [
     transition(':enter', [
       style({ transform: 'translateX(-100%)', opacity: 0 }),
-      animate('800ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({ transform: 'translateX(0)', opacity: 1 }))
+      animate('300ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({ transform: 'translateX(0)', opacity: 1 }))
     ]),
     transition(':leave', [
-      animate('800ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({ transform: 'translateX(-100%)', opacity: 0 }))
+      animate('300ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({ transform: 'translateX(-100%)', opacity: 0 }))
     ])
   ])
 ]
