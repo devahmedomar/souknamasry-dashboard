@@ -137,7 +137,9 @@
     padding: 12px 20px;
     font-size: 13px;
   }
-
+  /* .custom-table {
+    max-width: 400px;
+  } */
   .custom-table .p-button {
     padding: 0.2rem 0.4rem;
     font-size: 12px;

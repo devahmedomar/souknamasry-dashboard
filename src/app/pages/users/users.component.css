@@ -1,0 +1,164 @@
+/* 🌐 Base Style */
+.users-page {
+  margin-left: 180px;
+  padding: 2rem;
+}
+.page-title {
+  font-size: 26px;
+}
+.page-subtitle {
+  font-size: 14px;
+}
+/* ✅ Cards */
+.filter-card,
+.table-card {
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+}
+
+/* ✅ Extra Small Devices - max 575.98px */
+@media (max-width: 575.98px) {
+  .users-page {
+    margin-left: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.85rem;
+  }
+
+  app-add-button,
+  .btn,
+  .w-auto {
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    margin: 0 auto;
+  }
+
+  .user-stat {
+    width: 100%;
+    max-width: 320px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .user-stat i {
+    font-size: 1.4rem;
+  }
+
+  .user-stat h5 {
+    font-size: 0.95rem;
+  }
+
+  .user-stat p {
+    font-size: 1.2rem;
+  }
+
+  .table-card,
+  app-crud-table,
+  app-search-bar {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 13px;
+  }
+}
+
+/* ✅ Small Devices - 576px to 767.98px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .users-page {
+    margin-left: 0;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 1.4rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .user-stat i {
+    font-size: 1.5rem;
+  }
+
+  .user-stat h5 {
+    font-size: 1rem;
+  }
+
+  .user-stat p {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+
+  .table-card,
+  app-crud-table {
+    font-size: 14px;
+    padding: 0.75rem;
+  }
+}
+
+/* ✅ Medium Devices - 768px to 991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .users-page {
+    margin-left: 120px;
+    padding: 2rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .user-stat p {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+
+  app-crud-table {
+    font-size: 15px;
+  }
+}
+
+/* ✅ Large Devices - 992px to 1199.98px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .users-page {
+    margin-left: 150px;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  app-crud-table {
+    font-size: 1rem;
+  }
+}
+
+/* ✅ Extra Large Devices - 1200px and above */
+@media (min-width: 1200px) {
+  .users-page {
+    margin-left: 180px;
+  }
+
+  .page-title {
+    font-size: 1.625rem;
+  }
+}

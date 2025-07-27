@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrudTableComponent } from '../../shared/components/crud-table/crud-table.component';
+import { AddButtonComponent } from "../../shared/components/add-button/add-button.component";
+import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CrudTableComponent, CommonModule],
+  imports: [CrudTableComponent, CommonModule, AddButtonComponent, SearchBarComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
+   searchTerm = ''; //reccive search results
+
+  handleSearch(term: string) {
+  this.searchTerm = term;
+}
 
   // ✅ Columns definition for the CRUD table
   tableColumns = [
@@ -146,4 +153,20 @@ export class UsersComponent {
       this.tableData = this.tableData.filter(u => u.id !== user.id);
     }
   }
+
+ 
+
+  get totalUsers() {
+  return this.tableData.length;
+}
+
+get activeUsers() {
+  return this.tableData.filter(user => user.status.toLowerCase() === 'active').length;
+}
+
+get inactiveUsers() {
+  return this.tableData.filter(user => user.status.toLowerCase() === 'inactive').length;
+}
+
+
 }

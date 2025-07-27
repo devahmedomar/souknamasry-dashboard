@@ -14,14 +14,25 @@ import { PLATFORM_ID } from '@angular/core';
    encapsulation: ViewEncapsulation.None
 })
 export class CrudTableComponent {
-  @Input() columns: { field: string; header: string; width?: string }[] = [];
-  @Input() data: any[] = [];
+ @Input() columns: { field: string; header: string; width?: string }[] = [];
+@Input() data: any[] = [];
 
-  @Output() onView = new EventEmitter<any>();
-  @Output() onEdit = new EventEmitter<any>();
-  @Output() onDelete = new EventEmitter<any>();
+@Input() searchTerm: string = ''; // receive word
 
-  readonly rowsPerPageOptions = [5, 10, 20];
+@Output() onView = new EventEmitter<any>();
+@Output() onEdit = new EventEmitter<any>();
+@Output() onDelete = new EventEmitter<any>();
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+readonly rowsPerPageOptions = [5, 10, 20];
+
+get filteredData(): any[] {
+  if (!this.searchTerm) return this.data;
+  const term = this.searchTerm.toLowerCase();
+  return this.data.filter(row =>
+    Object.values(row).some(value =>
+      value?.toString().toLowerCase().includes(term)
+    )
+  );
+}
+
 }
