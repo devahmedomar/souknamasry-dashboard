@@ -1,5 +1,11 @@
 <app-navbar></app-navbar>
-<app-report-button></app-report-button>
+<!-- Toggle Icon -->
+<div class="toggle-icon" *ngIf="!isSidebarOpen" (click)="toggleSidebar()">
+  <i class="pi pi-bars"></i>
+</div>
 
+<!-- Sidebar with animation -->
+<div *ngIf="isSidebarOpen" @sidebarAnimation class="sidebar-container">
+  <app-sidebar (close)="toggleSidebar()"></app-sidebar>
+</div>
 <router-outlet></router-outlet>
-
