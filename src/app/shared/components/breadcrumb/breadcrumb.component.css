@@ -3,6 +3,10 @@
   list-style: none;
   padding: 0;
 }
+.breadcrumb:hover {
+  text-decoration: underline;
+  color: #604239;
+}
 .breadcrumb-item {
   margin-right: 10px;
 }

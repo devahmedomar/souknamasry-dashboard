@@ -26,38 +26,31 @@ export class BreadcrumbComponent implements OnInit {
       .subscribe(() => {
         this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
       });
-    
-    // Initialize breadcrumbs on component load
+
+     // Initialize breadcrumbs on component load
     this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
   }
 
   private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: BreadcrumbItem[] = []): BreadcrumbItem[] {
-    const children: ActivatedRoute[] = route.children;
-
-    if (children.length === 0) {
-      return breadcrumbs;
-    }
-
-    for (const child of children) {
-      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
-      if (routeURL !== '') {
+    for (const child of route.children) {
+      const routeURL = child.snapshot.url.map(segment => segment.path).join('/');
+      if (routeURL) {
         url += `/${routeURL}`;
       }
 
-      const label = this.getRouteLabel(routeURL);
-      
+      const label = child.snapshot.data['breadcrumb'] || this.getRouteLabel(routeURL);
+
       if (label) {
         breadcrumbs.push({
-          label: label,
-          url: url,
+          label,
+          url,
           isActive: false
         });
       }
 
-      return this.createBreadcrumbs(child, url, breadcrumbs);
+      this.createBreadcrumbs(child, url, breadcrumbs);
     }
-
-    // Set the last breadcrumb as active
+       // Set the last breadcrumb as active
     if (breadcrumbs.length > 0) {
       breadcrumbs[breadcrumbs.length - 1].isActive = true;
     }
@@ -65,7 +58,7 @@ export class BreadcrumbComponent implements OnInit {
     return breadcrumbs;
   }
 
-  private getRouteLabel(route: string): string {
+   private getRouteLabel(route: string): string {
     const routeLabels: { [key: string]: string } = {
       'dashboard': 'Dashboard',
       'users': 'Users',
