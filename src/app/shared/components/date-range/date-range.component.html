@@ -1,1 +1,35 @@
-<p>date-range works!</p>
+<div class="date-range-wrapper">
+  <!-- Date range input -->
+  <div
+    class="flex items-center gap-2 p-2 border rounded-md shadow-sm bg-white date-width cursor-pointer"
+    (click)="toggleCalendarVisibilty($event)"
+  >
+    <i class="pi pi-calendar text-gray-600 text-base"></i>
+    <span class="text-sm font-medium text-gray-700 min-w-[150px]">
+      {{ formatDateRange() }}
+    </span>
+  </div>
+
+  <!-- Calendar popup -->
+  <div
+    *ngIf="showCalendar"
+    class="absolute top-full show-calender mt-2 z-50 bg-white border border-gray-200 rounded-lg shadow-lg"
+    (click)="$event.stopPropagation()"
+  >
+    <p-calendar
+      [(ngModel)]="rangeDates"
+      selectionMode="range"
+      [inline]="true"
+      [panelStyleClass]="'custom-panel'"
+      dateFormat="dd/mm/yy"
+      (onSelect)="onDateSelect()"
+    />
+  </div>
+
+  <!-- Overlay to close calendar when clicking outside -->
+  <div
+    *ngIf="showCalendar"
+    class="fixed inset-0 z-40"
+    (click)="showCalendar = false"
+  ></div>
+</div>

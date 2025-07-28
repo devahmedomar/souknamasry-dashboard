@@ -1,1 +1,9 @@
-<app-add-button></app-add-button>
+<div class="custom-table" style="width: 1000px;">
+  <app-crud-table
+    [columns]="tableColumns"
+    [data]="tableData"
+    (onView)="handleView($event)"
+    (onEdit)="handleEdit($event)"
+    (onDelete)="handleDelete($event)">
+  </app-crud-table>
+</div>

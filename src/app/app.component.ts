@@ -9,7 +9,7 @@ import {trigger,transition,style,animate} from '@angular/animations';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SidebarComponent, ButtonModule, CommonModule,NavbarComponent],
+  imports: [RouterOutlet, SidebarComponent,ButtonModule, CommonModule,NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 animations: [
