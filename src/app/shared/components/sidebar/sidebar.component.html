@@ -1,1 +1,37 @@
-<p>sidebar works!</p>
+<!-- layout.component.html -->
+<div class="layout">
+  <!-- ✅ Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <a [routerLink]="['/home']" class="logo-link" tabindex="-1">
+          <img [src]="image" alt="Logo" />
+        </a>
+      </div>
+
+      <div class="icon" (click)="toggleSidebar()">
+        <i class="pi pi-bars"></i>
+      </div>
+    </div>
+
+    <ul>
+      <app-sidebar-item
+        *ngFor="let item of menuItems"
+        [label]="item.label"
+        [icon]="item.icon"
+        [route]="item.route"
+        [subItems]="item.subItems"
+      ></app-sidebar-item>
+    </ul>
+
+    <button class="logout-btn" (click)="logout()">
+      <i class="pi pi-sign-out"></i>
+      Logout
+    </button>
+  </nav>
+
+  <!-- ✅ Main Page Content -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

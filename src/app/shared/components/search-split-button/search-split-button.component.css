@@ -90,17 +90,52 @@
   border: none !important;
 }
 
-@media (min-width: 320px) and (max-width: 430px) {
+@media (min-width: 320px) and (max-width: 340px) {
   .search-bar {
     width: 190px;
+    margin-left: 48px;
+    margin-right: 8px;
+    transform: translateX(-4px);
   }
   .icon-button {
     transform: translateX(8px);
   }
 }
-@media (min-width: 431px) and (max-width: 768px) {
+@media (min-width: 341px) and (max-width: 380px) {
+  .search-bar {
+    width: 190px;
+    margin-left: 48px;
+    margin-right: 8px;
+    transform: translateX(-4px);
+  }
+  .icon-button {
+    transform: translateX(8px);
+  }
+}
+@media (min-width: 381px) and (max-width: 426px) {
+  .search-bar {
+    width: 190px;
+    margin-left: 68px;
+    margin-right: 8px;
+  }
+  .icon-button {
+    transform: translateX(8px);
+  }
+}
+@media (min-width: 427px) and (max-width: 576px) {
   .search-bar {
     width: 250px;
+    margin-left: 66px;
+    margin-right: 8px;
+  }
+  .icon-button {
+    transform: translateX(35px);
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .search-bar {
+    width: 250px;
+    margin-left: 5px;
   }
   .icon-button {
     transform: translateX(32px);
@@ -109,10 +144,12 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .search-bar {
     width: 300px;
+    margin-left: 5px;
   }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
   .search-bar {
     width: 300px;
+    margin-left: 10px;
   }
 }

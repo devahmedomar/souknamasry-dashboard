@@ -1,7 +1,8 @@
 /* 🌐 Base Style */
 .users-page {
-  margin-left: 180px;
+  /* margin-left: 180px; */
   padding: 2rem;
+  margin-top: 50px !important;
 }
 .page-title {
   font-size: 26px;
@@ -116,7 +117,7 @@
 /* ✅ Medium Devices - 768px to 991.98px */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .users-page {
-    margin-left: 120px;
+    /* margin-left: 120px; */
     padding: 2rem;
   }
 
@@ -139,9 +140,9 @@
 
 /* ✅ Large Devices - 992px to 1199.98px */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .users-page {
+  /* .users-page {
     margin-left: 150px;
-  }
+  } */
 
   .page-title {
     font-size: 1.6rem;
@@ -154,9 +155,9 @@
 
 /* ✅ Extra Large Devices - 1200px and above */
 @media (min-width: 1200px) {
-  .users-page {
+  /* .users-page {
     margin-left: 180px;
-  }
+  } */
 
   .page-title {
     font-size: 1.625rem;

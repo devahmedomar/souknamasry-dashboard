@@ -1,7 +1,9 @@
 /* ✅ Main table container */
 .custom-table {
-   font-family: system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
 }
+
+/* ✅ Table structure */
 .custom-table .p-datatable {
   border-radius: 12px;
   overflow: hidden;
@@ -15,18 +17,27 @@
 /* ✅ Table headers and cells */
 .custom-table .p-datatable-thead > tr > th,
 .custom-table .p-datatable-tbody > tr > td {
-  padding: 16px 40px;
+  padding: 16px 24px;
   vertical-align: middle;
   white-space: nowrap;
   background-color: #fff;
 }
 
-/* ✅ Row hover effect */
+/* ✅ Row hover */
 .custom-table .p-datatable-tbody > tr:hover {
   background-color: #f9fcff;
 }
 
-/* ✅ Action buttons styling */
+/* ✅ Action cell styling */
+.custom-table .p-datatable-tbody > tr > td.actions-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 16px 24px;
+}
+
+/* ✅ Buttons */
 .custom-table .p-button {
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
@@ -34,18 +45,7 @@
   letter-spacing: 0.4px;
 }
 
-/* ✅ Action cell layout */
-.custom-table .p-datatable-tbody > tr > td.actions-cell {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  padding: 16px 20px;
-  line-height: 1.5;
-  transform: translateX(-129px);
-}
-
-/* ✅ Status color utilities */
+/* ✅ Status colors */
 .text-green-600 {
   color: #22c55e;
 }
@@ -53,7 +53,7 @@
   color: #ef4444;
 }
 
-/* ✅ Paginator styling */
+/* ✅ Paginator */
 .p-paginator {
   padding: 10px 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -63,7 +63,7 @@
   background: transparent;
 }
 
-.p-paginator .p-paginator-pages .p-paginator-page {
+.p-paginator .p-paginator-page {
   border: none;
   margin: 0 4px;
   background-color: #fff;
@@ -71,12 +71,12 @@
   border-radius: 6px;
 }
 
-.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+.p-paginator .p-paginator-page.p-highlight {
   background-color: #ca4b02;
   color: white;
 }
 
-/* ✅ Enable horizontal scroll on small screens */
+/* ✅ Responsive scroll */
 .custom-table .p-datatable-wrapper {
   overflow-x: auto;
 }
@@ -84,7 +84,7 @@
   min-width: 600px;
 }
 
-/* ✅ Dropdown inside paginator */
+/* ✅ Paginator Dropdown */
 .p-paginator .p-dropdown {
   border-radius: 8px;
   background-color: #f9f9f9;
@@ -93,66 +93,45 @@
   height: 36px;
   min-width: 80px;
 }
-
-/* ✅ Dropdown icon inside paginator */
-.p-paginator .p-dropdown .p-dropdown-trigger {
+.p-paginator .p-dropdown-label {
+  padding: 4px 10px;
+  font-weight: 500;
+}
+.p-paginator .p-dropdown-trigger {
   color: #ca4b02;
 }
 
-/* ✅ Selected value label inside dropdown */
-.p-paginator .p-dropdown .p-dropdown-label {
-  color: #333;
-  font-weight: 500;
-  padding: 4px 10px;
-}
-
-/* ✅ Dropdown panel styling */
+/* ✅ Dropdown Panel */
 .p-dropdown-panel {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
-
-/* ✅ Dropdown item styling */
 .p-dropdown-item {
   padding: 10px 15px;
   font-size: 14px;
   color: #333;
 }
-
-/* ✅ Highlight and hover effects for dropdown items */
 .p-dropdown-item.p-highlight,
 .p-dropdown-item:hover {
   background-color: #f2f2f2;
   color: #ca4b02;
 }
 
-/* ✅ Responsive for mobile (768px) */
+/* ✅ Mobile responsive */
 @media (max-width: 768px) {
-  .custom-table .p-datatable-wrapper {
-    -webkit-overflow-scrolling: touch;
-  }
-
   .custom-table .p-datatable-thead > tr > th,
   .custom-table .p-datatable-tbody > tr > td {
-    padding: 12px 20px;
+    padding: 12px 16px;
     font-size: 13px;
-  }
-  /* .custom-table {
-    max-width: 400px;
-  } */
-  .custom-table .p-button {
-    padding: 0.2rem 0.4rem;
-    font-size: 12px;
   }
 
   .custom-table .p-datatable-tbody > tr > td.actions-cell {
     gap: 6px;
     padding: 12px 16px;
   }
-}
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .custom-table .p-datatable-table {
-    width: 95% !important;
+  .custom-table .p-button {
+    padding: 0.2rem 0.4rem;
+    font-size: 12px;
   }
 }
