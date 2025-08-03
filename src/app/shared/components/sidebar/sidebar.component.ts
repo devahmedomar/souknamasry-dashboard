@@ -1,91 +1,90 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
 import { SidebarItemComponent } from '../sidebar-item/sidebar-item.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, SidebarItemComponent, ButtonModule , RouterModule],
+  imports: [CommonModule, SidebarItemComponent, ButtonModule, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
-  
 })
 export class SidebarComponent {
+  // Emit event to close sidebar
+  @Output() close = new EventEmitter<void>();
+
+  // Used to check if current view is mobile
+  @Input() isMobile = false;
+
   // Logo image path
   image = 'assets/images/logo-al2.png';
 
-  // To track the currently active route
+  // Track the current active route
   activeRoute = '';
 
-  // Emit event to close sidebar (used in parent component)
-  @Output() close = new EventEmitter<void>();
-
-  // List of menu items for the sidebar
+  // Sidebar menu items with optional sub-items
   menuItems = [
-    {
-      label: 'Home',
-      icon: 'pi-home',
-      route: '/home',
-      subItems: []
-    },
+    { label: 'Home', icon: 'pi-home', route: '/home', subItems: [] },
     {
       label: 'Stores',
       icon: 'pi-shop',
       route: '/stores',
       subItems: [
-        { label: 'Add Store', route: '/stores/add', icon: 'pi pi-plus' }
-      ]
+        { label: 'Add Store', route: '/stores/add', icon: 'pi pi-plus' },
+      ],
     },
     {
       label: 'Users',
       icon: 'pi-user',
       route: '/users',
       subItems: [
-        { label: 'Add User', route: '/users/add', icon: 'pi pi-user-plus' }
-      ]
+        { label: 'Add User', route: '/users/add', icon: 'pi pi-user-plus' },
+      ],
     },
     {
       label: 'Orders',
       icon: 'pi-shopping-cart',
       route: '/orders',
       subItems: [
-        { label: 'Add Order', route: '/orders/add', icon: 'pi pi-cart-plus' }
-      ]
+        { label: 'Add Order', route: '/orders/add', icon: 'pi pi-cart-plus' },
+      ],
     },
     {
       label: 'Roles',
       icon: 'pi-users',
       route: '/roles',
       subItems: [
-        { label: 'Add Role', route: '/roles/add', icon: 'pi pi-plus-circle' }
-      ]
+        { label: 'Add Role', route: '/roles/add', icon: 'pi pi-plus-circle' },
+      ],
     },
     {
       label: 'Settings',
       icon: 'pi-cog',
-      route: '/settings'
-    }
+      route: '/settings',
+    },
   ];
 
   constructor(private router: Router) {
-    // Get the current URL when the component is initialized
+    // Set initial active route
     this.activeRoute = this.router.url;
 
-    // Update active route whenever navigation happens
-    this.router.events.subscribe(() => {
-      this.activeRoute = this.router.url;
+    // Update active route on navigation
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.activeRoute = event.urlAfterRedirects;
+      }
     });
   }
 
-  // Handle sidebar toggle icon click
+  // Trigger sidebar close event
   toggleSidebar() {
     this.close.emit();
   }
 
-  // Logout and navigate to login page
+  // Redirect to login on logout
   logout() {
     this.router.navigate(['/login']);
   }

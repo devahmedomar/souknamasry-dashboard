@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  Inject,
-  ViewEncapsulation
-} from '@angular/core';
+import {Component,Input,Output,EventEmitter,ViewEncapsulation} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -20,16 +13,23 @@ import { PaginatorModule } from 'primeng/paginator';
   encapsulation: ViewEncapsulation.None
 })
 export class CrudTableComponent {
+  // Table columns configuration
   @Input() columns: { field: string; header: string; width?: string }[] = [];
+
+  // Original data to be displayed
   @Input() data: any[] = [];
+  
+  // Text used to filter table rows
   @Input() searchTerm: string = '';
 
+   // Output events for CRUD actions
   @Output() onView = new EventEmitter<any>();
   @Output() onEdit = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<any>();
 
   readonly rowsPerPageOptions = [5, 10, 20];
 
+  // Compute filtered rows based on search term
   get filteredData(): any[] {
     if (!this.searchTerm) return this.data;
     const term = this.searchTerm.toLowerCase();

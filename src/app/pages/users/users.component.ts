@@ -3,15 +3,23 @@ import { CommonModule } from '@angular/common';
 import { CrudTableComponent } from '../../shared/components/crud-table/crud-table.component';
 import { AddButtonComponent } from "../../shared/components/add-button/add-button.component";
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CrudTableComponent, CommonModule, AddButtonComponent, SearchBarComponent],
+  imports: [CrudTableComponent, CommonModule, AddButtonComponent, SearchBarComponent ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
+
+  
+constructor(private router: Router) {}
+
+handleAddUser() {
+  this.router.navigate(['/users/add']);
+}
 
   ngOnInit(): void {
   console.log('UsersComponent initialized');
@@ -171,6 +179,4 @@ get activeUsers() {
 get inactiveUsers() {
   return this.tableData.filter(user => user.status.toLowerCase() === 'inactive').length;
 }
-
-
 }

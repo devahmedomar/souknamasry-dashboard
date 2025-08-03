@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Input } from '@angular/core';
+import { Input , Output , EventEmitter  } from '@angular/core';
 
 @Component({
   selector: 'app-add-button',
@@ -12,4 +12,6 @@ import { Input } from '@angular/core';
 export class AddButtonComponent {
 
 @Input() width: string = 'auto';
+@Output() addClick = new EventEmitter<void>();
+
 }
