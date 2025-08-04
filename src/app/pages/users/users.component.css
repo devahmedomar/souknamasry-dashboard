@@ -1,203 +1,30 @@
-/* 🌐 Base Style */
+/* ✅ Page Header Layout */
 .users-page {
-  padding: 2rem;
-  margin-top: 50px !important;
+  margin-top: 90px !important;
+}
+.users-header {
+  flex-direction: row;
+
 }
 
-.page-title {
-  font-size: 26px;
+.add-user-btn {
+  margin-left: auto;
 }
 
-.page-subtitle {
-  font-size: 14px;
-}
-
-/* ✅ Cards */
-.filter-card,
-.table-card {
-  border-radius: 12px;
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-}
-
-/* ✅ تنسيق كروت الإحصائيات */
-.user-stat {
-  background-color: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.user-stat:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
-
-.user-stat i {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.user-stat h5 {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.user-stat p {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #111827;
-  margin: 0;
-}
-
-/* ✅ Responsive Styles */
-
-/* Extra Small - max 599.98px */
-@media (max-width: 599.98px) {
-  .users-page {
-    margin-left: 0;
-    padding: 1rem;
-    display: flex;
+/* ✅ Responsive behavior */
+@media (max-width: 767.98px) {
+  .users-header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
   }
 
-  .page-title {
-    font-size: 1.4rem;
-    width: 100%;
-  }
-
-  .page-subtitle {
-    font-size: 0.95rem;
-    width: 100%;
-  }
-
-  app-add-button,
-  .btn,
-  .w-auto {
+  .add-user-btn {
     width: 100% !important;
-    font-size: 0.95rem;
-    padding: 0.75rem;
     margin-top: 1rem;
-    display: block;
-    max-width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .user-stat {
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .user-stat i {
-    font-size: 1.4rem;
-  }
-
-  .user-stat h5 {
-    font-size: 1rem;
-  }
-
-  .user-stat p {
-    font-size: 1.25rem;
-  }
-
-  .table-card,
-  app-crud-table,
-  app-search-bar {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 13px;
-  }
-}
-
-/* Small - 600px to 767.98px */
-@media (min-width: 600px) and (max-width: 767.98px) {
-  .users-page {
     margin-left: 0;
-    padding: 1.5rem;
-    text-align: center;
   }
 
-  .page-title {
-    font-size: 1.4rem;
-  }
-
-  .page-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .user-stat i {
-    font-size: 1.5rem;
-  }
-
-  .user-stat h5 {
-    font-size: 1rem;
-  }
-
-  .user-stat p {
-    font-size: 1.3rem;
-  }
-
-  .btn {
-    font-size: 0.95rem;
-  }
-
-  .table-card,
-  app-crud-table {
-    font-size: 14px;
-    padding: 0.75rem;
-  }
-}
-
-/* Medium - 768px to 991.98px */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .users-page {
-    padding: 2rem;
-  }
-
-  .page-title {
-    font-size: 1.5rem;
-  }
-
-  .user-stat p {
-    font-size: 1.4rem;
-  }
-
-  .btn {
-    font-size: 0.95rem;
-  }
-
-  app-crud-table {
-    font-size: 15px;
-  }
-}
-
-/* Large - 992px to 1199.98px */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .page-title {
-    font-size: 1.6rem;
-  }
-
-  app-crud-table {
-    font-size: 1rem;
-  }
-}
-
-/* Extra Large - 1200px and above */
-@media (min-width: 1200px) {
-  .page-title {
-    font-size: 1.625rem;
+  .header-text {
+    width: 100%;
   }
 }

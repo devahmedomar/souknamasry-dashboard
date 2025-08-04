@@ -88,4 +88,5 @@ export class SidebarComponent {
   logout() {
     this.router.navigate(['/login']);
   }
+  
 }

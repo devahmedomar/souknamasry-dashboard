@@ -2,21 +2,23 @@
 
 <!-- ✅ Main container for content and sidebar -->
 <div class="layout-container">
-  <!-- ✅ Sidebar toggle button -->
+
+  <!-- ✅ Sidebar -->
+  <div class="sidebar-wrapper" [class.closed]="!isSidebarOpen">
+    <app-sidebar (close)="toggleSidebar()"></app-sidebar>
+  </div>
+
+  <!-- ✅ Toggle icon (always visible when sidebar is closed) -->
   <div class="toggle-icon" *ngIf="!isSidebarOpen" (click)="toggleSidebar()">
     <i class="pi pi-bars"></i>
   </div>
 
-  <!-- ✅ Dark overlay when sidebar is open -->
-  <div class="overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
-
-  <!-- ✅ Sidebar displayed above the content -->
-  <div class="sidebar-wrapper" [class.closed]="!isSidebarOpen">
-    <app-sidebar (close)="toggleSidebar()"></app-sidebar>
-  </div>
+  <!-- ✅ Dark overlay (only visible in mobile when sidebar is open) -->
+  <div class="overlay" *ngIf="isSidebarOpen && isMobile" (click)="toggleSidebar()"></div>
 
   <!-- ✅ Main content area -->
   <div class="main-content">
     <router-outlet></router-outlet>
   </div>
+
 </div>

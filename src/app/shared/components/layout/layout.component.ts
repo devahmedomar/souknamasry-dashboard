@@ -1,48 +1,43 @@
-import { Component, HostListener, Inject } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
+  imports: [SidebarComponent, RouterModule, NavbarComponent, CommonModule],
   standalone: true,
-  imports: [NavbarComponent, SidebarComponent, RouterModule, CommonModule],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrl: './layout.component.css',
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
+  // Controls sidebar visibility
   isSidebarOpen = true;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    // Set sidebar state on initial load (browser only)
-    if (isPlatformBrowser(this.platformId)) {
-      this.updateSidebarState(window.innerWidth);
+  // Checks if current screen is mobile
+  isMobile = false;
+
+  ngOnInit() {
+    this.updateLayout();
+  }
+
+  // Updates layout on window resize
+  @HostListener('window:resize')
+  onResize() {
+    this.updateLayout();
+  }
+
+  // Adjusts sidebar state based on screen size
+  updateLayout() {
+    if (typeof window !== 'undefined') {
+      this.isMobile = window.innerWidth <= 1024;
+      this.isSidebarOpen = !this.isMobile;
     }
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    // Update sidebar state on window resize
-    if (isPlatformBrowser(this.platformId)) {
-      const target = event.target as Window;
-      this.updateSidebarState(target.innerWidth);
-    }
-  }
-
-  // Show/hide sidebar based on screen width
-  updateSidebarState(width: number) {
-    this.isSidebarOpen = width > 1024;
-  }
-
-  // Toggle sidebar manually (button click)
+  // Toggles sidebar open/close
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
-  }
-
-  // Check if current screen is mobile size
-  get isMobile(): boolean {
-    return isPlatformBrowser(this.platformId) && window.innerWidth <= 1024;
   }
 }
