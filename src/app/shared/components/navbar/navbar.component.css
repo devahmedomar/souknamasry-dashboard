@@ -270,7 +270,7 @@ ul {
     margin-right: 150px !important;
   }
 }
-@media (min-width: 769px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 991.99px) {
   .dropdown button:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -288,6 +288,7 @@ ul {
     margin-top: 15px;
     align-items: center;
   }
+ 
 
   .menu-bar {
     display: inline-block;
@@ -319,18 +320,28 @@ ul {
     z-index: 1;
     position: fixed;
     margin-left: 220px;
-    height: 87px;
+    height: 90px;
     width: 89%;
   }
   .navbar-nav {
-    margin-right: 120px;
-    margin-top: 60px;
+    margin-right: 130px;
+    margin-top: 5px;
   }
   .admin-content {
     text-align: center;
+   
   }
 }
-@media (min-width: 992px) and (max-width: 1024px) {
+@media(min-width: 991.99px) and (max-width: 992px) {
+ .Logo {
+    display: flex;
+    gap: 15px;
+    /* align-items: center;
+    justify-content: space-between; */
+  }
+ 
+}
+@media (min-width: 993px) and (max-width: 1024px) {
   .dropdown button:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -379,10 +390,11 @@ ul {
     position: fixed;
     margin-left: 220px;
     height: 87px;
-    width: 89%;
+    width: 85%;
   }
   .navbar-nav {
     margin-right: 120px;
+    
   }
 }
 @media (min-width: 1025px) and (max-width: 1440px) {
@@ -392,6 +404,7 @@ ul {
     margin-left: 240px;
     height: 82px;
     width: 85%;
+    margin-bottom: 250px;
   }
   .navbar-nav {
     margin-right: 80px;
@@ -404,6 +417,7 @@ ul {
     margin-left: 240px;
     height: 80px;
     width: 89%;
+    margin-bottom: 250px;
   }
   .navbar-nav {
     margin-right: 100px;

@@ -1,1 +1,49 @@
-<p>roles works!</p>
+<div class="main-content">
+    <div class="content-address">
+<h2>Role Management</h2>
+<div class="content2">
+    <app-breadcrumb></app-breadcrumb>
+    <div class="content2-buttons">
+<app-date-range></app-date-range>
+<app-report-button></app-report-button>
+    </div>
+
+    </div>
+    </div>
+
+    <div class="content-body">
+        <div class="body1">
+
+            <div class="input-group search-bar">
+  
+
+  
+
+  <input
+    type="text"
+    class="border-0 search-input"
+    placeholder="Search here"
+    
+  />
+
+  <button class="btn icon-button" type="button">
+    <i class="pi pi-search"></i>
+  </button>
+             </div>
+  
+        <app-add-button></app-add-button>
+        </div>
+        
+        <div class="custom-table" style="width: 900px; margin: auto;z-index: 1;">
+  <app-crud-table
+    [columns]="tableColumns"
+    [data]="tableData"
+    (onView)="handleView($event)"
+    (onEdit)="handleEdit($event)"
+    (onDelete)="handleDelete($event)">
+  </app-crud-table>
+</div>
+    
+    </div>
+
+</div>
