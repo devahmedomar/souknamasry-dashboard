@@ -1,30 +1,102 @@
-/* ✅ Page Header Layout */
+/* 🌐 Base Style */
 .users-page {
   margin-top: 90px !important;
+  padding: 2rem;
 }
+
+/* ✅ Header Layout */
 .users-header {
-  flex-direction: row;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: visible; /* Required for dropdowns to show above */
 }
 
-.add-user-btn {
-  margin-left: auto;
+/* ✅ Header Text */
+.header-text {
+  flex-grow: 1;
 }
 
-/* ✅ Responsive behavior */
+.page-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ✅ Actions Section (Date Range + Report Button) */
+.actions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ✅ Date Range Picker Styling */
+::ng-deep app-date-range {
+  min-width: 200px;
+  display: inline-block;
+}
+
+/* ✅ PrimeNG Calendar Input */
+::ng-deep .p-calendar,
+::ng-deep .p-inputtext {
+  min-width: 200px !important;
+  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+}
+
+/* ✅ PrimeNG Datepicker Panel */
+::ng-deep .p-datepicker {
+  z-index: 9999 !important;
+  position: absolute;
+}
+
+/* ✅ Report Button Styling */
+::ng-deep app-report-button {
+  min-width: 150px;
+}
+
+/* ✅ Stat Cards Styling */
+.user-stat {
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ✅ Responsive Layout */
 @media (max-width: 767.98px) {
   .users-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .add-user-btn {
-    width: 100% !important;
-    margin-top: 1rem;
-    margin-left: 0;
+  .header-text {
+    width: 100%;
   }
 
-  .header-text {
+  .actions-wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .actions-wrapper app-report-button,
+  .actions-wrapper app-date-range {
     width: 100%;
   }
 }

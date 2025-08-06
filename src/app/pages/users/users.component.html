@@ -6,11 +6,11 @@
       <p class="page-subtitle">Control and monitor all registered platform users efficiently.</p>
     </div>
 
-    <app-add-button
-      [width]="'200px'"
-      class="add-user-btn"
-      (addClick)="handleAddUser()"
-    ></app-add-button>
+    <!-- ✅ Group the buttons side by side -->
+    <div class="actions-wrapper d-flex gap-2">
+      <app-date-range></app-date-range>
+      <app-report-button></app-report-button>
+    </div>
   </div>
 
   <!-- ✅ Filter Card -->

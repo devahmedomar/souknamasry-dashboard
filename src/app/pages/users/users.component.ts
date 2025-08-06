@@ -4,13 +4,16 @@ import { CrudTableComponent } from '../../shared/components/crud-table/crud-tabl
 import { AddButtonComponent } from "../../shared/components/add-button/add-button.component";
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 import { Router } from '@angular/router';
+import { ReportButtonComponent } from "../../shared/components/report-button/report-button.component";
+import { DateRangeComponent } from "../../shared/components/date-range/date-range.component";
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CrudTableComponent, CommonModule, AddButtonComponent, SearchBarComponent ],
+  imports: [CrudTableComponent, CommonModule, SearchBarComponent, ReportButtonComponent, DateRangeComponent],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrl: './users.component.css',
+  
 })
 export class UsersComponent {
 
