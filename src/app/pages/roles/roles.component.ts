@@ -119,6 +119,10 @@ export class RolesComponent {
     },
     
   ];
+  selectedDateRange: Date[] = [];
+  onDateRangeChange(dates: Date[]) {
+    this.selectedDateRange = dates;
+  }
 
   // ✅ Handle view action from the table
   handleView(user: any) {
