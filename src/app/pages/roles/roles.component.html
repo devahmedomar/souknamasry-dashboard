@@ -4,8 +4,9 @@
 <div class="content2">
     <app-breadcrumb></app-breadcrumb>
     <div class="content2-buttons">
-<app-date-range></app-date-range>
-<app-report-button></app-report-button>
+
+      <app-date-range></app-date-range>
+    <app-report-button></app-report-button>
     </div>
 
     </div>
@@ -35,7 +36,7 @@
         </div>
         
         <div class="custom-table" style="width: 900px; margin: auto;z-index: 1;">
-  <app-crud-table
+  <app-crud-table 
     [columns]="tableColumns"
     [data]="tableData"
     (onView)="handleView($event)"
