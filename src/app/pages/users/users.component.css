@@ -1,0 +1,129 @@
+/* 🌐 Base Style */
+.users-page {
+  margin-top: 90px !important;
+  padding: 2rem;
+}
+
+/* ✅ Header Layout */
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: visible;
+}
+
+/* ✅ Breadcrumb inside header-text */
+.breadcrumb-wrapper {
+  margin-top: 0.5rem;
+}
+
+/* ✅ Page Titles */
+.page-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.page-subtitle {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+/* ✅ Actions Section (Date Range + Report Button) */
+.actions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ✅ Date Range Picker Styling */
+::ng-deep app-date-range {
+  min-width: 200px;
+  display: inline-block;
+}
+
+/* ✅ PrimeNG Calendar Input */
+::ng-deep .p-calendar,
+::ng-deep .p-inputtext {
+  min-width: 200px !important;
+  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+}
+
+/* ✅ PrimeNG Datepicker Panel */
+::ng-deep .p-datepicker {
+  z-index: 9999 !important;
+  position: absolute;
+}
+
+/* ✅ Report Button Styling */
+::ng-deep app-report-button {
+  min-width: 150px;
+}
+
+/* ✅ User Stats Cards */
+.user-stat {
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ✅ Responsive Layout */
+@media (max-width: 767.98px) {
+  .users-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .header-text {
+    width: 100%;
+    margin-bottom: 0!important;
+  }
+
+  .breadcrumb-wrapper {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .breadcrumb-wrapper app-breadcrumb {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ✅ Keep buttons side by side */
+  .actions-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  /* ✅ Make elements grow flexibly */
+  .actions-wrapper app-report-button,
+  .actions-wrapper app-date-range,
+  ::ng-deep app-date-range,
+  ::ng-deep app-report-button {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 140px;
+  }
+}

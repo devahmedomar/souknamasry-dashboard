@@ -1,12 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import {
-  trigger,
-  transition,
-  style,
-  animate,
-} from '@angular/animations';
+import {trigger,transition,style,animate,} from '@angular/animations';
 
 @Component({
   selector: 'app-sidebar-item',
@@ -15,6 +10,7 @@ import {
   templateUrl: './sidebar-item.component.html',
   styleUrl: './sidebar-item.component.css',
   animations: [
+    // Animation for submenu expand/collapse
     trigger('submenuAnimation', [
       transition(':enter', [
         style({ height: 0, opacity: 0 }),
@@ -27,55 +23,66 @@ import {
   ],
 })
 export class SidebarItemComponent implements OnInit {
-
   @Input() label!: string;
   @Input() icon?: string;
   @Input() route?: string;
   @Input() subItems?: { label: string; route: string; icon?: string }[];
 
-  isOpen: boolean = false;
-  currentRoute: string = '';
+  isOpen: boolean = false;         // Controls submenu open/close
+  currentRoute: string = '';       // Tracks current active route
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Store the current route on initial load
+    // Set initial route
     this.currentRoute = this.router.url;
 
-    // Update currentRoute on each navigation
+    // Update on route change
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
+
+        // Auto-open submenu if any sub-route matches current URL
+        this.isOpen = this.subItems?.some(sub =>
+          this.currentRoute.startsWith(sub.route)
+        ) ?? false;
       }
     });
   }
 
-  // Handle main link click and toggle submenu if exists
+  // Toggle main item or navigate
   toggle() {
     if (this.subItems?.length) {
       this.isOpen = !this.isOpen;
+    }
 
-      // Navigate if a route is provided
-      if (this.route) {
-        this.router.navigate([this.route]);
-      }
-    } else if (this.route) {
-      this.router.navigate([this.route]);
+    if (this.route && this.currentRoute !== this.route) {
+      this.router.navigateByUrl(this.route);
     }
   }
 
-  // Navigate to a sub-item's route
+  // Navigate to sub-item route
   navigateSub(sub: { route: string }) {
-    this.router.navigate([sub.route]);
+    this.router.navigateByUrl(sub.route);
   }
 
-  // Check if the main route is active
+  // Check if main item is active
   isMainActive(): boolean {
-    return this.route ? this.currentRoute === this.route : false;
+    if (this.route && this.currentRoute === this.route) {
+      return true;
+    }
+
+    if (this.subItems?.length) {
+      return this.subItems.some(sub =>
+        this.currentRoute.startsWith(sub.route)
+      );
+    }
+
+    return false;
   }
 
-  // Check if a sub-item's route is active
+  // Check if specific sub-item is active
   isSubActive(route: string): boolean {
-    return this.currentRoute === route;
+    return this.currentRoute.startsWith(route);
   }
 }
