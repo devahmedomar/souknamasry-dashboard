@@ -41,24 +41,31 @@
   top: 1rem;
   left: 1rem;
   z-index: 2000;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 1.5rem;
+  color: #444;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
 }
 
+/* ✅ Hover style */
 .toggle-icon:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  transform: scale(1.05);
+  background-color: #f5f5f5;
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ Icon inside it */
+.toggle-icon i {
+  pointer-events: none;
+  transition: transform 0.2s;
 }
 
 /* ✅ Overlay (hidden by default) */

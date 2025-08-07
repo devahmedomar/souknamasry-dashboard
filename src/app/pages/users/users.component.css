@@ -8,19 +8,20 @@
 .users-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.5rem;
   position: relative;
-  overflow: visible; /* Required for dropdowns to show above */
+  overflow: visible;
 }
 
-/* ✅ Header Text */
-.header-text {
-  flex-grow: 1;
+/* ✅ Breadcrumb inside header-text */
+.breadcrumb-wrapper {
+  margin-top: 0.5rem;
 }
 
+/* ✅ Page Titles */
 .page-title {
   font-size: 26px;
   font-weight: 600;
@@ -28,8 +29,10 @@
 }
 
 .page-subtitle {
+  margin-top: 15px;
   font-size: 14px;
   color: #555;
+  margin-bottom: 0.25rem;
 }
 
 /* ✅ Actions Section (Date Range + Report Button) */
@@ -65,7 +68,7 @@
   min-width: 150px;
 }
 
-/* ✅ Stat Cards Styling */
+/* ✅ User Stats Cards */
 .user-stat {
   border-radius: 16px;
   background-color: #fff;
@@ -83,20 +86,44 @@
 @media (max-width: 767.98px) {
   .users-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.75rem;
   }
 
   .header-text {
     width: 100%;
+    margin-bottom: 0!important;
   }
 
+  .breadcrumb-wrapper {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .breadcrumb-wrapper app-breadcrumb {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ✅ Keep buttons side by side */
   .actions-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
     width: 100%;
-    flex-direction: column;
   }
 
+  /* ✅ Make elements grow flexibly */
   .actions-wrapper app-report-button,
-  .actions-wrapper app-date-range {
-    width: 100%;
+  .actions-wrapper app-date-range,
+  ::ng-deep app-date-range,
+  ::ng-deep app-report-button {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 140px;
   }
 }

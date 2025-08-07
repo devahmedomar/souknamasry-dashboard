@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrudTableComponent } from '../../shared/components/crud-table/crud-table.component';
-import { AddButtonComponent } from "../../shared/components/add-button/add-button.component";
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 import { Router } from '@angular/router';
 import { ReportButtonComponent } from "../../shared/components/report-button/report-button.component";
 import { DateRangeComponent } from "../../shared/components/date-range/date-range.component";
+import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CrudTableComponent, CommonModule, SearchBarComponent, ReportButtonComponent, DateRangeComponent],
+  imports: [CrudTableComponent, CommonModule, SearchBarComponent, ReportButtonComponent, DateRangeComponent , BreadcrumbComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
   
