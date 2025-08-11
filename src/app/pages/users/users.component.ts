@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ReportButtonComponent } from "../../shared/components/report-button/report-button.component";
 import { DateRangeComponent } from "../../shared/components/date-range/date-range.component";
 import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb.component';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-users',
@@ -13,7 +14,7 @@ import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcru
   imports: [CrudTableComponent, CommonModule, SearchBarComponent, ReportButtonComponent, DateRangeComponent , BreadcrumbComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
-  
+  encapsulation: ViewEncapsulation.None
 })
 export class UsersComponent {
 

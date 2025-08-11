@@ -6,36 +6,39 @@
   border: 1px solid #e4e4e7;
 }
 
-/* ✅ Search container */
-.search-container {
+/* ✅ Same horizontal level */
+.search-container1 {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+/* ✅ Search field alignment */
+.p-input-icon-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  position: relative;
+  width: 100%;
 }
 
-/* ✅ Add button */
-.add-button {
-  padding: 10px 24px !important;
-  font-size: 14px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* ✅ Search icon */
-.search-container .pi-search {
+.p-input-icon-left > i {
+  margin-top: 1px;
   position: absolute;
-  top: 50%;
   left: 14px;
-  transform: translateY(-50%);
+  font-size: 16px;
   color: #888;
-  font-size: 1rem;
-  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%); /* Perfectly center icon vertically */
+  line-height: 1; /* Prevents icon from being pushed up */
+  height: auto; /* Prevents icon stretching */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ✅ Search input field */
 .search-input {
-  padding-left: 2.2rem;
-  padding-right: 1rem;
+  padding-left: 2.2rem; /* Space for the icon */
   height: 45px;
   font-size: 14px;
   border-radius: 8px;
@@ -46,14 +49,48 @@
 
 .search-input:focus {
   border-color: #aaa;
-  box-shadow: none; 
+  box-shadow: none;
   outline: none;
 }
 
-/* ✅ Media Query for small screens */
-@media (max-width: 767.98px) {
+/* ✅ Add button */
+.add-button {
+  padding: 10px 24px !important;
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/*  Fix disappearing button issue between 601px and 767px */
+@media (min-width: 601px) and (max-width: 767px) {
+  .search-container1 .col-md-8 {
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+  .search-container1 .col-md-4 {
+    flex: 0 0 30%;
+    max-width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+/*  Improve button styling between 601px and 683px */
+@media (min-width: 601px) and (max-width: 683px) {
+  .search-container1 .col-md-4 app-add-button,
+  .search-container1 .col-md-4 .add-button {
+    font-size: 12px !important;
+    padding: 8px 12px !important;
+    white-space: nowrap;
+  }
+}
+
+/*  Media query for small screens */
+@media (max-width: 600px) {
   .search-container1 {
     flex-direction: column;
+    align-items: stretch;
     gap: 1rem;
   }
 
@@ -61,6 +98,12 @@
   .search-container1 .col-md-4 {
     width: 100%;
     max-width: 100%;
+  }
+
+  /* ✅ Add button full width */
+  .search-container1 .col-md-4 app-add-button,
+  .search-container1 .col-md-4 .add-button {
+    width: 100% !important;
   }
 
   .search-container1 .col-md-4 {
