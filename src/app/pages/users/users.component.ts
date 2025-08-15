@@ -1,15 +1,39 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrudTableComponent } from '../../shared/components/crud-table/crud-table.component';
+import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
+import { Router } from '@angular/router';
+import { ReportButtonComponent } from "../../shared/components/report-button/report-button.component";
+import { DateRangeComponent } from "../../shared/components/date-range/date-range.component";
+import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb.component';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CrudTableComponent, CommonModule],
+  imports: [CrudTableComponent, CommonModule, SearchBarComponent, ReportButtonComponent, DateRangeComponent , BreadcrumbComponent],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrl: './users.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class UsersComponent {
+
+  
+constructor(private router: Router) {}
+
+handleAddUser() {
+  this.router.navigate(['/users/add']);
+}
+
+  ngOnInit(): void {
+  console.log('UsersComponent initialized');
+}
+
+   searchTerm = ''; //reccive search results
+
+  handleSearch(term: string) {
+  this.searchTerm = term;
+}
 
   // ✅ Columns definition for the CRUD table
   tableColumns = [
@@ -18,7 +42,6 @@ export class UsersComponent {
     { field: 'phone', header: 'Phone Number', width: '150px' },
     { field: 'hasOrder', header: 'Has Order?', width: '120px' },
     { field: 'email', header: 'Email', width: '250px' },
-      {field:'actions', header:'Actions', width:"100px"  }
   ];
 
   // ✅ Sample data to display in the table
@@ -146,4 +169,18 @@ export class UsersComponent {
       this.tableData = this.tableData.filter(u => u.id !== user.id);
     }
   }
+
+ 
+
+  get totalUsers() {
+  return this.tableData.length;
+}
+
+get activeUsers() {
+  return this.tableData.filter(user => user.status.toLowerCase() === 'active').length;
+}
+
+get inactiveUsers() {
+  return this.tableData.filter(user => user.status.toLowerCase() === 'inactive').length;
+}
 }

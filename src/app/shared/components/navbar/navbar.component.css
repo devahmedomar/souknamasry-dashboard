@@ -262,13 +262,13 @@ ul {
   .my-navbar {
     z-index: 1;
     position: fixed;
-    margin-left: 220px;
+    /* margin-left: 220px; */
     height: 87px;
-    width: 89%;
+    width: 100%;
   }
-  .my-navbar .navbar-toggler {
+  /* .my-navbar .navbar-toggler {
     margin-right: 150px !important;
-  }
+  } */
 }
 @media (min-width: 768px) and (max-width: 991.99px) {
   .dropdown button:focus {
@@ -388,11 +388,11 @@ ul {
   .my-navbar {
     z-index: 1;
     position: fixed;
-    margin-left: 220px;
+    /* margin-left: 220px; */
     height: 87px;
     width: 85%;
   }
-  .navbar-nav {
+  /* .navbar-nav {
     margin-right: 120px;
     
   }
@@ -401,25 +401,25 @@ ul {
   .my-navbar {
     z-index: 1;
     position: fixed;
-    margin-left: 240px;
+    /* margin-left: 240px; */
     height: 82px;
     width: 85%;
     margin-bottom: 250px;
   }
-  .navbar-nav {
+  /* .navbar-nav {
     margin-right: 80px;
-  }
+  } */
 }
 @media (min-width: 1441px) {
   .my-navbar {
     z-index: 1;
     position: fixed;
-    margin-left: 240px;
+    /* margin-left: 240px; */
     height: 80px;
     width: 89%;
     margin-bottom: 250px;
   }
-  .navbar-nav {
+  /* .navbar-nav {
     margin-right: 100px;
-  }
+  } */
 }

@@ -1,0 +1,27 @@
+<div class="card filter-card mb-4 p-3">
+  <div class="row d-flex justify-content-between search-container1">
+    <!-- 🔍 Search field -->
+    <div class="col-md-8">
+      <span class="p-input-icon-left position-relative">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          pInputText
+          placeholder="Search by name or email"
+          class="form-control shadow-sm search-input"
+          (ngModelChange)="onSearchChange()"
+        />
+      </span>
+    </div>
+
+    <!-- ➕ Add button -->
+    <div class="col-md-4 d-flex justify-content-end align-items-center">
+      <app-add-button
+        [width]="'100%'"
+        [label]="addButtonLabel"
+        [route]="addButtonRoute"
+      ></app-add-button>
+    </div>
+  </div>
+</div>
