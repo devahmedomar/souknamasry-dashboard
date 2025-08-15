@@ -5,9 +5,10 @@
   overflow: hidden;
 }
 
-/* ================= Sidebar Container ================= */
+/* ================= Sidebar ================= */
 .sidebar {
   width: 240px;
+  height: 100%; 
   background-color: #ffffff;
   padding: 0.1rem 1rem;
   display: flex;
@@ -16,8 +17,17 @@
   border-right: 1px solid #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
-  
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Hide sidebar when closed */
+.sidebar.closed {
+  transform: translateX(-100%);
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* ================= Sidebar Header ================= */
@@ -49,7 +59,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-color: transparent; 
+  background-color: transparent;
   margin-top: 10px;
 }
 
@@ -106,95 +116,18 @@
 }
 
 /* ================= Responsive ================= */
-
-/* ================= 📱 Mobile: less than 576px ================= */
-@media (max-width: 575.98px) {
-  .layout {
-    flex-direction: column;
-  }
-
+@media (max-width: 1024px) {
   .sidebar {
-    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 999;
-    height: 100vh;
-    padding: 1rem;
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
   }
 
   .main-content {
     padding: 1rem;
-    margin-top: 100px;
-  }
-
-  .logo img {
-    width: 110px;
-  }
-
-  .icon {
-    font-size: 22px;
-    width: 42px;
-    height: 42px;
-    margin-top: 6px;
-  }
-
-  .logout-btn {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-}
-
-/* ================= 💻 Tablet: 576px to 1024px ================= */
-@media (min-width: 576px) and (max-width: 1024px) {
-  .sidebar {
-    width: 220px;
-    padding: 0.7rem 1rem;
-  }
-
-  .logo img {
-    width: 130px;
-  }
-
-  .icon {
-    font-size: 24px;
-    width: 46px;
-    height: 46px;
-  }
-
-  .logout-btn {
-    font-size: 16px;
-    padding: 12px 10px;
-  }
-
-  .main-content {
-    padding: 1.2rem;
-  }
-}
-
-/* ================= 🖥️ Desktop: more than 1024px ================= */
-@media (min-width: 1025px) {
-  .sidebar {
-    width: 240px;
-    padding: 0.1rem 1rem;
-  }
-
-  .logo img {
-    width: 150px;
-  }
-
-  .icon {
-    font-size: 24px;
-    width: 48px;
-    height: 48px;
-  }
-
-  .logout-btn {
-    font-size: 18px;
-    padding: 15px 10px;
-  }
-
-  .main-content {
-    padding: 1.5rem;
   }
 }

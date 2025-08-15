@@ -3,7 +3,6 @@
   <a 
     (click)="toggle()" 
     [class.active]="isMainActive()"
-    
   >
     <!-- Main Icon -->
     <i 
@@ -21,7 +20,7 @@
       *ngIf="subItems?.length"
       class="pi"
       [ngClass]="isOpen ? 'pi-chevron-up' : 'pi-chevron-down'"
-      style="margin-left: 10px; "
+      style="margin-left: 10px;"
     ></i>
   </a>
 
