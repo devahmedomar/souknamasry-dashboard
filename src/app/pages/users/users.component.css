@@ -16,11 +16,6 @@
   overflow: visible;
 }
 
-/* ✅ Breadcrumb inside header-text */
-.breadcrumb-wrapper {
-  margin-top: 0.5rem;
-}
-
 /* ✅ Page Titles */
 .page-title {
   font-size: 26px;
@@ -95,17 +90,6 @@ app-date-range {
     margin-bottom: 0!important;
   }
 
-  .breadcrumb-wrapper {
-    width: 100%;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .breadcrumb-wrapper app-breadcrumb {
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
 
   /* ✅ Keep buttons side by side */
   .actions-wrapper {
