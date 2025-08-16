@@ -91,7 +91,7 @@
   }
 
   .date-width {
-    width: 64% !important;
+    width: 100% !important;
   }
 
   .custom-panel {
@@ -103,7 +103,7 @@
 
 @media (min-width: 320px) and (max-width: 430px) {
   .date-width {
-    width: 64% !important;
+    width: 100% !important;
   }
 
   .custom-panel {

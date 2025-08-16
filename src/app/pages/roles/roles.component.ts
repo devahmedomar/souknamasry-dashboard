@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
-import { BreadcrumbComponent } from "../../shared/components/breadcrumb/breadcrumb.component";
+import { Router } from '@angular/router';
+import { CrudTableComponent } from "../../shared/components/crud-table/crud-table.component";
 import { DateRangeComponent } from "../../shared/components/date-range/date-range.component";
 import { ReportButtonComponent } from "../../shared/components/report-button/report-button.component";
-import { AddButtonComponent } from "../../shared/components/add-button/add-button.component";
-import { CrudTableComponent } from "../../shared/components/crud-table/crud-table.component";
+import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-roles',
   standalone: true,
-  imports: [BreadcrumbComponent, DateRangeComponent, ReportButtonComponent, AddButtonComponent, CrudTableComponent],
+  imports: [ DateRangeComponent, ReportButtonComponent, CrudTableComponent, SearchBarComponent],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
 export class RolesComponent {
+  constructor(private router: Router) {}
+
+handleAddUser() {
+  this.router.navigate(['/roles/add']);
+}
+
+ 
+
+
 // ✅ Columns definition for the CRUD table
   tableColumns = [
     { field: 'no', header: 'Number', width: '100px'},
@@ -20,7 +29,7 @@ export class RolesComponent {
     { field: 'email', header: 'Email', width: '250px'},
     { field: 'phone', header: 'Phone Number', width: '150px'},
     { field: 'role', header: 'Role', width: '120px'},
-    {field:'actions', header:'Actions', width:"100px"}
+    
   ];
 
   // ✅ Sample data to display in the table
@@ -31,19 +40,18 @@ export class RolesComponent {
       email: 'shahd@example.com',
       phone: '01012345678',
       role: "delivery",
-      
     },
     {
       no: 2,
-      name: 'Shahd Othman',
-      email: 'shahd@example.com',
+      name: 'Maged Ahmed',
+      email: 'magedahm@example.com',
       phone: '01012345678',
       role: "delivery",
     },
     {
       no: 3,
-      name: 'Shahd Othman',
-      email: 'shahd@example.com',
+      name: 'Maged Walid',
+      email: 'MGWA@example.com',
       phone: '01012345678',
       role: "delivery",
     },
@@ -123,7 +131,23 @@ export class RolesComponent {
   onDateRangeChange(dates: Date[]) {
     this.selectedDateRange = dates;
   }
+    searchTerm: string = ''; //reccive search results
 
+
+  filteredData = [...this.tableData]; 
+
+handleSearch(term: string) {
+  this.searchTerm = term.toLowerCase();
+
+  this.filteredData = this.tableData.filter(user =>
+    user.name.toLowerCase().includes(this.searchTerm) ||
+    user.email.toLowerCase().includes(this.searchTerm)
+  );
+}
+
+  
+
+  
   // ✅ Handle view action from the table
   handleView(user: any) {
     console.log('Viewing:', user);

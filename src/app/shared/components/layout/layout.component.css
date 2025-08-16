@@ -38,8 +38,8 @@
 .toggle-icon {
   display: flex;
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  top: 0.5rem;
+  left: 0.5rem;
   z-index: 2000;
   width: 46px;
   height: 46px;
