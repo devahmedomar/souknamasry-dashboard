@@ -153,3 +153,10 @@
     margin-left: 180px;
   }
 }
+
+@media (min-width: 1441px) {
+  .search-bar {
+    width: 300px;
+    margin-left: 180px;
+  }
+}

@@ -411,12 +411,12 @@ ul {
   .my-navbar {
     z-index: 1;
     position: fixed;
-    margin-left: 240px;
+    /* margin-left: 240px; */
     height: 80px;
-    width: 89%;
+    width: 100%;
     margin-bottom: 250px;
   }
   .navbar-nav {
-    margin-right: 100px;
+    margin-right: -20px;
   }
 }

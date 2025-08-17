@@ -15,7 +15,7 @@ import { SearchBarComponent } from '../../shared/components/search-bar/search-ba
 export class RolesComponent {
   constructor(private router: Router) {}
 
-handleAddUser() {
+handleAddRole() {
   this.router.navigate(['/roles/add']);
 }
 
@@ -45,14 +45,14 @@ handleAddUser() {
       no: 2,
       name: 'Maged Ahmed',
       email: 'magedahm@example.com',
-      phone: '01012345678',
+      phone: '01002345678',
       role: "delivery",
     },
     {
       no: 3,
       name: 'Maged Walid',
       email: 'MGWA@example.com',
-      phone: '01012345678',
+      phone: '01112345678',
       role: "delivery",
     },
     {
@@ -66,7 +66,7 @@ handleAddUser() {
       no: 5,
       name: 'Shahd Othman',
       email: 'shahd@example.com',
-      phone: '01012345678',
+      phone: '01212345678',
       role: "delivery",
     },
     {
@@ -80,7 +80,7 @@ handleAddUser() {
       no: 7,
       name: 'Shahd Othman',
       email: 'shahd@example.com',
-      phone: '01012345678',
+      phone: '01512345678',
       role: "delivery",
     },
     {
@@ -138,11 +138,11 @@ handleAddUser() {
 
 handleSearch(term: string) {
   this.searchTerm = term.toLowerCase();
-
   this.filteredData = this.tableData.filter(user =>
-    user.name.toLowerCase().includes(this.searchTerm) ||
-    user.email.toLowerCase().includes(this.searchTerm)
-  );
+    Object.values(user).some(val =>
+      String(val).toLowerCase().includes(this.searchTerm)
+    )
+  );
 }
 
   
