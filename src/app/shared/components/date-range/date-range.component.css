@@ -5,6 +5,10 @@
 .custom-panel {
   border: none !important;
   box-shadow: none !important;
+  position: absolute;
+  z-index: 9;
+  top: 90%;
+  transform: translateY(-20px);
 }
 
 .custom-panel .p-datepicker {
@@ -87,7 +91,7 @@
   }
 
   .date-width {
-    width: 64% !important;
+    width: 100% !important;
   }
 
   .custom-panel {
@@ -99,7 +103,7 @@
 
 @media (min-width: 320px) and (max-width: 430px) {
   .date-width {
-    width: 64% !important;
+    width: 100% !important;
   }
 
   .custom-panel {
@@ -111,18 +115,24 @@
 
 @media (min-width: 431px) and (max-width: 768px) {
   .date-width {
-    width: 35% !important;
+    width: 100% !important;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 867px) {
   .date-width {
-    width: 20% !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 868px) and (max-width: 1024px) {
+  .date-width {
+    width: 100% !important;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
   .date-width {
-    width: 16% !important;
+    width: 100% !important;
   }
 }

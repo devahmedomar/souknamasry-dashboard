@@ -1,0 +1,239 @@
+.main-content {
+  margin-top: 80px;
+}
+
+.content-address {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: start;
+}
+h2 {
+  color: #604239;
+}
+.content2 {
+  margin-top: 10px;
+}
+.content2-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.content-body {
+  background-color: white;
+  /* width: 100%; */
+  margin-top: 50px;
+}
+.body1 {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 40px;
+  transform: translateY(20px);
+}
+.search-bar {
+  border: 1px solid #9f8585;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  height: 45px;
+  width: 350px;
+  position: relative;
+  padding-inline: 6px;
+}
+.search-input {
+  color: #604239;
+  background: transparent;
+  width: 50%;
+  height: 30px;
+  border: none;
+}
+.search-input:focus {
+  outline: none !important;
+  border: none !important;
+}
+.icon-button {
+  background-color: transparent;
+  color: #604239;
+  border: none;
+  padding: 0.5rem 1rem;
+  transform: translateX(130px);
+}
+
+@media (min-width: 320px) and (max-width: 679px) {
+.content-address {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  margin-top: 20px;
+}
+.content2-buttons {
+   display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+}
+
+
+
+@media (min-width: 680px) and (max-width: 768px) {
+  .main-content {
+    margin-top: 80px;
+  }
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(110px);
+  }
+  h2 {
+    color: #604239;
+    transform: translateY(13px);
+  }
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: start;
+  }
+  .content2 {
+    margin-top: 12px;
+  }
+}
+@media (min-width: 769px) and (max-width: 790px) {
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(110px);
+  }
+  h2 {
+    
+    color: #604239;
+    margin: 0;
+    transform: translateY(13px);
+  }
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: start;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .content2 {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 791px) and (max-width: 797px) {
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(120px);
+  }
+  h2 {
+    color: #604239;
+    margin: 0;
+    transform: translateY(12px);
+  }
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: start;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .content2 {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 797px) and (max-width: 867px) {
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  h2 {
+   
+    color: #604239;
+    margin: 0;
+    transform: translateY(12px);
+  }
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: start;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .content2 {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 867px) and (max-width: 900px) {
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  h2 {
+   
+    color: #604239;
+    margin: 0;
+    transform: translateY(12px);
+  }
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: start;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+}
+@media (min-width: 901px) and (max-width: 2000px) {
+ h2 {
+   
+    color: #604239;
+    margin: 0;
+    transform: translateY(45px);
+  } 
+  .content2 {
+    margin-top: 45px;
+  }
+}
+

@@ -1,4 +1,4 @@
-import { Component, inject, PLATFORM_ID, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
 import * as XLSX from 'xlsx';
 
@@ -12,38 +12,40 @@ import * as XLSX from 'xlsx';
 export class ReportButtonComponent {
   isDropdownOpen = false;
   readonly platformId = inject(PLATFORM_ID);
-
- 
+  @Input() tableData: any[] = [];
+  @Input() dateRange: Date[] = [];
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  exportExcel(event: MouseEvent): void {
+    event.preventDefault(); // Prevent default anchor behavior
+    this.executeExport();
+    this.isDropdownOpen = false; // Close dropdown after export
+  }
+
   executeExport(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.exportToExcel("data-table", "report");
+      this.exportToExcel(this.tableData, this.dateRange, "report");
     }
   }
 
-  exportToExcel(tableId: string, name: string): void {
+  exportToExcel(data: any[], dateRange: Date[], name: string): void {
+    if (!dateRange || dateRange.length < 2) {
+      console.warn('Please select a date range first.');
+      return;
+    }
+
+    const timespan = new Date().toISOString();
+    const prefix = name || "Export Result";
+    const fileName = `${prefix}-${timespan}.xlsx`;
+
     
-   const timespan = new Date().toISOString();
-   const prefix = name || "Export Result";
-   const fileName = `${prefix}-${timespan}`;
-   const targetTable = document.getElementById(tableId);
-    
-    if (targetTable != null) {
-      try {
-        const wb = XLSX.utils.table_to_book(
-          targetTable, 
-          <XLSX.Table2SheetOpts>{ sheet: prefix }
-        );
-        XLSX.writeFile(wb, `${fileName}.xlsx`);
-      } catch (error) {
-        console.error('Error exporting to Excel:', error);
-      }
-    } else {
-      console.warn(`Table with ID '${tableId}' not found`);
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    if (isPlatformBrowser(this.platformId)) {
+      XLSX.writeFile(workbook, fileName);
     }
   }
 }
