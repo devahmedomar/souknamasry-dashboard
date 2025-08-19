@@ -1,1 +1,60 @@
-<p>orders works!</p>
+<div class="orders-page">
+  <!-- 🔹 Page Header -->
+  <div
+    class="orders-header d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3"
+  >
+    <!-- 🔹 Title and subtitle -->
+    <div class="header-text">
+      <h2 class="page-title">📦 Orders Management</h2>
+      <p class="page-subtitle">
+        Control and monitor all platform orders efficiently.
+      </p>
+    </div>
+
+    <!-- 🔹 Right-side actions -->
+    <div class="actions-wrapper d-flex gap-2">
+      <app-date-range></app-date-range>
+      <app-report-button></app-report-button>
+    </div>
+  </div>
+
+  <!-- 🔹 Search Bar -->
+  <div class="row d-flex justify-content-between search-container1 mb-3">
+    <app-search-bar
+      (searchChange)="handleSearch($event)"
+      [addButtonLabel]="'Add Order'"
+      [addButtonRoute]="'/orders/add'"
+    >
+    </app-search-bar>
+  </div>
+
+  <!-- 🔹 Tabs -->
+  <ul class="nav orders-tabs mb-3">
+    <li
+      class="nav-item"
+      *ngFor="let tab of tabs"
+      (click)="setActiveTab(tab)"
+    >
+      <a
+        class="nav-link"
+        [ngClass]="{ active: activeTab() === tab }"
+        href="javascript:void(0)"
+      >
+        {{ tab }}
+      </a>
+    </li>
+  </ul>
+
+  <!-- 🔹 Orders Table -->
+  <div class="table-card p-2">
+    <app-crud-table
+      [columns]="columns"
+      [data]="filteredOrders()"
+      [searchTerm]="searchTerm()"
+      (onView)="handleView($event)"
+      (onEdit)="handleEdit($event)"
+      (onDelete)="handleDelete($event)"
+    >
+    </app-crud-table>
+  </div>
+</div>
