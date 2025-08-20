@@ -41,6 +41,10 @@ h2 {
     padding: 0.5rem 1rem;
     transform: translateX(130px);
   }
+  .card-width {
+    width: 300px;
+    margin: auto;
+  }
 }
 @media (min-width: 401px) and (max-width: 680px) {
   .content-address {
