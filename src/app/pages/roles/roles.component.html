@@ -1,1 +1,37 @@
-<p>roles works!</p>
+<div class="main-content">
+  <div class="content-address">
+    <h2>Role Management</h2>
+    <div class="content2">
+      <!-- <app-breadcrumb></app-breadcrumb> -->
+      <div class="content2-buttons">
+        <app-date-range
+          (dateRangeChanged)="onDateRangeChange($event)"
+        ></app-date-range>
+        <app-report-button
+          [tableData]="tableData"
+          [dateRange]="selectedDateRange"
+        ></app-report-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-body">
+    <app-search-bar
+      (searchChange)="handleSearch($event)"
+      [addButtonLabel]="'Add Role'"
+      [addButtonRoute]="'/roles/add'"
+    ></app-search-bar>
+
+    <div class="custom-table" style="margin: auto; z-index: 1">
+      <app-crud-table
+        [columns]="tableColumns"
+        [data]="filteredData"
+        [searchTerm]="searchTerm"
+        (onView)="handleView($event)"
+        (onEdit)="handleEdit($event)"
+        (onDelete)="handleDelete($event)"
+      >
+      </app-crud-table>
+    </div>
+  </div>
+</div>

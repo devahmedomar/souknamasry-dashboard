@@ -3,5 +3,9 @@
   Dashboard Report
 </button>
 <ul class="dropdown-menu show" *ngIf="isDropdownOpen">
-  <li><a class="dropdown-item" href="#">export by excel</a></li>
+  <li>
+    <a class="dropdown-item" href="#" (click)="exportExcel($event)"
+      >export by excel</a
+    >
+  </li>
 </ul>

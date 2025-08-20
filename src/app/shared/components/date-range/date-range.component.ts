@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { ViewEncapsulation } from '@angular/core';
@@ -16,6 +16,7 @@ import { ViewEncapsulation } from '@angular/core';
 export class DateRangeComponent {
   rangeDates: Date[] = [];
   showCalendar = false;
+  @Output() dateRangeChanged = new EventEmitter<Date[]>();
 
   toggleCalendarVisibilty(event: MouseEvent) {
     event.stopPropagation(); // Prevent closing immediately
@@ -24,7 +25,9 @@ export class DateRangeComponent {
 
   onDateSelect() {
     this.showCalendar = false; // Close calendar after selection
+    this.dateRangeChanged.emit(this.rangeDates); // إرسال نطاق التاريخ
     console.log('Selected dates:', this.rangeDates);
+   
   }
 
   formatDateRange(): string {
