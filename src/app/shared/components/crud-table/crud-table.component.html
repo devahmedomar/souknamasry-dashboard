@@ -23,7 +23,6 @@
     <tr>
       <td *ngFor="let col of columns">
         <ng-container [ngSwitch]="col.field">
-
           <!-- ✅ Boolean Display -->
           <ng-container *ngSwitchCase="'hasOrder'">
             {{ row[col.field] ? "Yes" : "No" }}
@@ -53,7 +52,6 @@
           <ng-container *ngSwitchDefault>
             {{ row[col.field] }}
           </ng-container>
-
         </ng-container>
       </td>
 
@@ -79,7 +77,7 @@
           pButton
           icon="pi pi-trash"
           class="p-button-sm p-button-text p-button-danger"
-          (click)="onDelete.emit(row)"
+          (click)="confirmDelete(row)"
           tooltip="Delete"
         ></button>
       </td>
