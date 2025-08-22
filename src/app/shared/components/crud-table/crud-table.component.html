@@ -24,31 +24,32 @@
     <tr>
       <td *ngFor="let col of columns">
         <ng-container [ngSwitch]="col.field">
-          <!-- Boolean Display -->
+          <!-- ✅ Boolean Display -->
           <ng-container *ngSwitchCase="'hasOrder'">
             {{ row[col.field] ? "Yes" : "No" }}
           </ng-container>
 
-          <!-- Status Field -->
+          <!-- ✅ Status Display -->
           <ng-container *ngSwitchCase="'status'">
             <span
-              [ngClass]="{
-                'text-green-600': row.status === 'active',
-                'text-red-600': row.status !== 'active'
-              }"
+              class="status-badge"
+              [ngClass]="'status-' + row.status?.toLowerCase()"
             >
               <i
-                class="pi"
+                class="pi me-1"
                 [ngClass]="{
-                  'pi-check-circle': row.status === 'active',
-                  'pi-times-circle': row.status !== 'active'
+                  'pi-check-circle': row.status?.toLowerCase() === 'active',
+                  'pi-times-circle': row.status?.toLowerCase() === 'inactive' || row.status?.toLowerCase() === 'cancelled',
+                  'pi-clock': row.status?.toLowerCase() === 'pending',
+                  'pi-truck': row.status?.toLowerCase() === 'shipped',
+                  'pi-box': row.status?.toLowerCase() === 'delivered'
                 }"
               ></i>
-              {{ row.status === "active" ? "Active" : "Inactive" }}
+              {{ row.status }}
             </span>
           </ng-container>
 
-          <!-- Default Case -->
+          <!-- ✅ Default Case -->
           <ng-container *ngSwitchDefault>
             {{ row[col.field] }}
           </ng-container>
@@ -77,7 +78,7 @@
           pButton
           icon="pi pi-trash"
           class="p-button-sm p-button-text p-button-danger"
-          (click)="onDelete.emit(row)"
+          (click)="confirmDelete(row)"
           tooltip="Delete"
         ></button>
       </td>

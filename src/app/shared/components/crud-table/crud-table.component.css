@@ -1,40 +1,38 @@
 /* ✅ Main table container */
 .custom-table {
   font-family: system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* ✅ Table structure */
+/* ✅ Table styling */
 .custom-table .p-datatable {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  font-size: 14px;
-  line-height: 1.6;
   text-align: left;
   letter-spacing: 0.4px;
 }
 
-/* ✅ Table headers and cells */
+/* ✅ Table headers & cells */
 .custom-table .p-datatable-thead > tr > th,
 .custom-table .p-datatable-tbody > tr > td {
-  padding: 16px 24px;
+  padding: 14px 20px;
   vertical-align: middle;
   white-space: nowrap;
   background-color: #fff;
 }
 
-/* ✅ Row hover */
+/* ✅ Row hover effect */
 .custom-table .p-datatable-tbody > tr:hover {
   background-color: #f9fcff;
 }
 
-/* ✅ Action cell styling */
-.custom-table .p-datatable-tbody > tr > td.actions-cell {
+/* ✅ Action cell */
+.custom-table .actions-cell {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 8px;
-  padding: 16px 24px;
 }
 
 /* ✅ Buttons */
@@ -42,15 +40,45 @@
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
   font-weight: 500;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
 }
 
-/* ✅ Status colors */
-.text-green-600 {
-  color: #22c55e;
+/* ✅ Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
 }
-.text-red-600 {
-  color: #ef4444;
+
+/* ✅ Status Colors */
+.status-active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+.status-inactive {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+.status-pending {
+  background-color: #fef9c3;
+  color: #92400e;
+}
+.status-shipped {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.status-delivered {
+  background-color: #dcfce7;
+  color: #065f46;
+}
+.status-cancelled {
+  background-color: #fee2e2;
+  color: #b91c1c;
 }
 
 /* ✅ Paginator */
@@ -74,14 +102,6 @@
 .p-paginator .p-paginator-page.p-highlight {
   background-color: #ca4b02;
   color: white;
-}
-
-/* ✅ Responsive scroll */
-.custom-table .p-datatable-wrapper {
-  overflow-x: auto;
-}
-.custom-table .p-datatable-table {
-  min-width: 600px;
 }
 
 /* ✅ Paginator Dropdown */
@@ -117,21 +137,20 @@
   color: #ca4b02;
 }
 
-/* ✅ Mobile responsive */
+/* ✅ Responsive */
 @media (max-width: 768px) {
   .custom-table .p-datatable-thead > tr > th,
   .custom-table .p-datatable-tbody > tr > td {
-    padding: 12px 16px;
+    padding: 12px 14px;
     font-size: 13px;
   }
 
-  .custom-table .p-datatable-tbody > tr > td.actions-cell {
+  .custom-table .actions-cell {
     gap: 6px;
-    padding: 12px 16px;
   }
 
   .custom-table .p-button {
-    padding: 0.2rem 0.4rem;
+    padding: 0.25rem 0.5rem;
     font-size: 12px;
   }
 }
