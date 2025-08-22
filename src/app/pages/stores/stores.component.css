@@ -45,6 +45,10 @@ h2 {
     width: 300px;
     margin: auto;
   }
+  img {
+    display: block;
+    margin: auto;
+  }
 }
 @media (min-width: 401px) and (max-width: 680px) {
   .content-address {
@@ -61,6 +65,10 @@ h2 {
   }
   h2 {
     margin-bottom: 20px;
+  }
+  img {
+    display: block;
+    margin: auto;
   }
 }
 
@@ -84,6 +92,10 @@ h2 {
     font-size: 16px;
     margin-top: 13px;
   }
+  img {
+    display: block;
+    margin: auto;
+  }
 }
 @media (min-width: 768px) {
   .content-address {
@@ -103,5 +115,10 @@ h2 {
   }
   h2 {
     margin-top: 9px;
+  }
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
   }
 }

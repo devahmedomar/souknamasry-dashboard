@@ -22,7 +22,7 @@
         *ngFor="let store of filteredStores"
         class="col-sm-12 col-md-6 col-lg-4 col-xxl-3"
       >
-        <div class="card card-width shadow-sm p-3">
+        <div class="card card-width rounded p-3">
           <div class="row g-2">
             <div
               *ngFor="let img of store.images"
@@ -44,7 +44,7 @@
             <div class="d-flex justify-content-between align-items-center mt-3">
               <p class="text-secondary mb-0">{{ store.products }} Products</p>
               <span
-                class="badge"
+                class="btn btn-success"
                 [ngClass]="
                   store.status === 'Active' ? 'bg-success' : 'bg-secondary'
                 "
