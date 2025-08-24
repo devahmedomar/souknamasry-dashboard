@@ -1,13 +1,15 @@
 <div class="login-wrapper">
   <!-- Logo for the company -->
-  <img id="company-logo" src="assets/soukna_masry_logo.png" alt="soukna_masry_logo">
+  <img
+    id="company-logo"
+    src="assets/soukna_masry_logo.png"
+    alt="soukna_masry_logo"
+  />
 
   <!-- PrimeNG Card to contain the login form -->
   <p-card class="login-card">
-    
     <!-- Template-driven form with reference #loginForm -->
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-
       <div class="login-container">
         <div class="login-form">
           <!-- Heading -->
@@ -29,13 +31,13 @@
 
           <!-- Password input with toggle visibility -->
           <div class="p-field">
-            <br>
+            <br />
             <p-password
               id="password"
               name="password"
               placeholder="Password"
               [(ngModel)]="loginData.password"
-              [toggleMask]="true" 
+              [toggleMask]="true"
               required
             ></p-password>
           </div>
@@ -56,7 +58,15 @@
           </div>
 
           <!-- Submit button -->
-          <button pButton type="submit" label="Log In" class="login-button"></button>
+          <button
+            pButton
+            type="submit"
+            label="Log In"
+            class="login-button"
+          ></button>
+          <div *ngIf="errorMessage" style="color: red; margin-top: 10px">
+            {{ errorMessage }}
+          </div>
         </div>
 
         <!-- Side image for visual design -->
