@@ -1,0 +1,148 @@
+h2 {
+  color: #604239;
+}
+.search-bar {
+  border: 1px solid #9f8585;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  height: 45px;
+  width: 350px;
+  position: relative;
+  padding-inline: 6px;
+}
+.search-input {
+  color: #604239;
+  background: transparent;
+  width: 50%;
+  height: 30px;
+  border: none;
+}
+.search-input:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+  .content-address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  .card-width {
+    width: 300px;
+    margin: auto;
+  }
+  img {
+    display: block;
+    margin: auto;
+  }
+}
+@media (min-width: 401px) and (max-width: 558px) {
+  .content-address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+}
+@media (min-width: 559px) and (max-width: 680px) {
+  .content-address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 766px) {
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+  }
+  .search-bar {
+    margin-left: 15px;
+  }
+
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  h2 {
+    font-size: 16px;
+    margin-top: 13px;
+  }
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+}
+@media (min-width: 767px) {
+  .content-address {
+    display: flex;
+    justify-content: space-between;
+  }
+  .search-bar {
+    margin-left: 15px;
+  }
+
+  .icon-button {
+    background-color: transparent;
+    color: #604239;
+    border: none;
+    padding: 0.5rem 1rem;
+    transform: translateX(130px);
+  }
+  h2 {
+    margin-top: 9px;
+  }
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+}

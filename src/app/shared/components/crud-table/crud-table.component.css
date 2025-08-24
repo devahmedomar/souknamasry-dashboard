@@ -1,0 +1,156 @@
+/* ✅ Main table container */
+.custom-table {
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ✅ Table styling */
+.custom-table .p-datatable {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  letter-spacing: 0.4px;
+}
+
+/* ✅ Table headers & cells */
+.custom-table .p-datatable-thead > tr > th,
+.custom-table .p-datatable-tbody > tr > td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+/* ✅ Row hover effect */
+.custom-table .p-datatable-tbody > tr:hover {
+  background-color: #f9fcff;
+}
+
+/* ✅ Action cell */
+.custom-table .actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ✅ Buttons */
+.custom-table .p-button {
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ✅ Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ✅ Status Colors */
+.status-active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+.status-inactive {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+.status-pending {
+  background-color: #fef9c3;
+  color: #92400e;
+}
+.status-shipped {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.status-delivered {
+  background-color: #dcfce7;
+  color: #065f46;
+}
+.status-cancelled {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ✅ Paginator */
+.p-paginator {
+  padding: 10px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  margin-top: 16px;
+  border: none;
+  background: transparent;
+}
+
+.p-paginator .p-paginator-page {
+  border: none;
+  margin: 0 4px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 6px;
+}
+
+.p-paginator .p-paginator-page.p-highlight {
+  background-color: #ca4b02;
+  color: white;
+}
+
+/* ✅ Paginator Dropdown */
+.p-paginator .p-dropdown {
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  height: 36px;
+  min-width: 80px;
+}
+.p-paginator .p-dropdown-label {
+  padding: 4px 10px;
+  font-weight: 500;
+}
+.p-paginator .p-dropdown-trigger {
+  color: #ca4b02;
+}
+
+/* ✅ Dropdown Panel */
+.p-dropdown-panel {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.p-dropdown-item {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+}
+.p-dropdown-item.p-highlight,
+.p-dropdown-item:hover {
+  background-color: #f2f2f2;
+  color: #ca4b02;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .custom-table .p-datatable-thead > tr > th,
+  .custom-table .p-datatable-tbody > tr > td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .custom-table .actions-cell {
+    gap: 6px;
+  }
+
+  .custom-table .p-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,21 @@
+button {
+  background-color: #604239;
+  color: #fff;
+  width: 190px;
+  height: 40px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  color: #fd833d !important;
+  background-color: transparent !important;
+}
+.dropdown-menu {
+  margin-top: 0.3rem;
+  margin-left: 0.6rem;
+}
+.show {
+  display: block;
+}

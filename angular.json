@@ -28,11 +28,14 @@
                "node_modules/bootstrap/dist/css/bootstrap.min.css",
                "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
                "node_modules/primeng/resources/primeng.min.css",
+               "node_modules/primeflex/primeflex.css",
                "node_modules/primeicons/primeicons.css",
+               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
                "src/styles.css"
+                
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -45,13 +48,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "8mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "20kb",
+                  "maximumError": "25kb"
                 }
               ],
               "outputHashing": "all"

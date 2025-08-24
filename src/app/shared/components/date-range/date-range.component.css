@@ -1,0 +1,138 @@
+.date-range-wrapper {
+  position: relative;
+}
+
+.custom-panel {
+  border: none !important;
+  box-shadow: none !important;
+  position: absolute;
+  z-index: 9;
+  top: 90%;
+  transform: translateY(-20px);
+}
+
+.custom-panel .p-datepicker {
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.custom-panel .p-datepicker-header {
+  padding: 0.75rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.custom-panel .p-datepicker-header:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.custom-panel .p-datepicker-calendar {
+  margin: 0.5rem;
+}
+
+.custom-panel .p-datepicker-calendar td {
+  padding: 0.25rem;
+}
+
+.custom-panel .p-datepicker-calendar td > span {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.custom-panel .p-datepicker-calendar td.p-datepicker-today > span {
+  background-color: #604239;
+  color: #fff;
+  font-weight: 600;
+}
+
+.custom-panel .p-datepicker-calendar td > span.p-highlight {
+  background-color: #fd833d !important;
+  color: white !important;
+  border-radius: 6px !important;
+}
+
+.custom-panel .p-datepicker-prev,
+.custom-panel .p-datepicker-next {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-panel .p-datepicker-calendar th {
+  padding: 0.5rem 0.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* ✅ Responsive */
+@media (max-width: 640px) {
+  .custom-panel .p-datepicker-calendar td > span {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .custom-panel .p-datepicker-prev,
+  .custom-panel .p-datepicker-next {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .date-width {
+    width: 100% !important;
+  }
+
+  .custom-panel {
+    width: 12% !important;
+    padding: 0px;
+    margin-inline: 0;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 430px) {
+  .date-width {
+    width: 100% !important;
+  }
+
+  .custom-panel {
+    width: 7% !important;
+    padding: 0px;
+    margin-inline: 5px;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+  .date-width {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 867px) {
+  .date-width {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 868px) and (max-width: 1024px) {
+  .date-width {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .date-width {
+    width: 100% !important;
+  }
+}

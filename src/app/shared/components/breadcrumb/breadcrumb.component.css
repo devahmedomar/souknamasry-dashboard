@@ -1,0 +1,42 @@
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.breadcrumb:hover {
+  text-decoration: underline;
+  color: #604239;
+}
+.breadcrumb-item {
+  margin-right: 10px;
+}
+.breadcrumb-item a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+  .breadcrumb-nav ol {
+    margin-left: 170px;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .breadcrumb-nav ol {
+    margin-left: 170px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  .breadcrumb-nav ol {
+    margin-left: 180px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .breadcrumb-nav ol {
+    margin-left: 180px;
+  }
+}
+@media (min-width: 1441px) and (max-width: 2000px) {
+  .breadcrumb-nav ol {
+    margin-left: 180px;
+  }
+}

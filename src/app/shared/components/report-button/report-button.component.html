@@ -1,0 +1,11 @@
+<button type="button" (click)="toggleDropdown()">
+  <i class="pi pi-download me-2"></i>
+  Dashboard Report
+</button>
+<ul class="dropdown-menu show" *ngIf="isDropdownOpen">
+  <li>
+    <a class="dropdown-item" href="#" (click)="exportExcel($event)"
+      >export by excel</a
+    >
+  </li>
+</ul>

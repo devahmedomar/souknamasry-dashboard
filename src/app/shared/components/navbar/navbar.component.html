@@ -1,1 +1,53 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg bg-white my-navbar">
+  <div class="container">
+    <app-search-split-button></app-search-split-button>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleNavbar()"
+      aria-controls="navbarSupportedContent"
+      [attr.aria-expanded]="isNavbarOpen"
+      aria-label="Toggle navigation"
+    >
+      <span class="menu-bar pi pi-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
+        <li class="nav-item">
+          <a class="nav-link" role="button"
+            ><i class="bi bi-chat-left-text"></i
+          ></a>
+        </li>
+        <li class="nav-item dropdown" style="position: relative">
+          <button class="nav-link" type="button" (click)="toggleDropdown()">
+            <i class="pi pi-bell bell"></i>
+          </button>
+
+          <ul
+            class="dropdown-menu show"
+            *ngIf="isDropdownOpen"
+            style="position: absolute; right: 0; top: 100%"
+          >
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <div class="line-border"></div>
+        </li>
+        <li>
+          <div class="Logo">
+            <img src="/assets/images/ahmed omar.png" alt="admin image" />
+            <div class="text-xs admin-content">
+              <span class="d-block">Ahmed Omar</span>
+              <span class="admin-name">Admin</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

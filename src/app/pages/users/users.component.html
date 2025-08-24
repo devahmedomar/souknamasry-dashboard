@@ -1,1 +1,59 @@
-<p>users works!</p>
+<div class="users-page">
+  <!-- ✅ Page Header -->
+  <div class="users-header d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
+    <!-- ✅ Title and description -->
+    <div class="header-text">
+      <h2 class="page-title">👥 Users Management</h2>
+      <p class="page-subtitle">Control and monitor all registered platform users efficiently.</p>
+    </div>
+
+    <!-- ✅ Right-side action buttons -->
+    <div class="actions-wrapper d-flex gap-2">
+      <app-date-range></app-date-range>
+      <app-report-button></app-report-button>
+    </div>
+  </div>
+
+  <!-- ✅ Search bar and Add button -->
+  <app-search-bar
+    (searchChange)="handleSearch($event)"
+    [addButtonLabel]="'Add User'"
+    [addButtonRoute]="'/users/add'"
+  ></app-search-bar>
+
+  <!-- ✅ Statistics cards -->
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="user-stat card p-3 text-center">
+        <i class="pi pi-users text-primary fs-4 mb-2"></i>
+        <h5 class="mb-1">Total Users</h5>
+        <p class="fs-5 fw-bold mb-0">{{ totalUsers }}</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="user-stat card p-3 text-center">
+        <i class="pi pi-check-circle text-success fs-4 mb-2"></i>
+        <h5 class="mb-1">Active Users</h5>
+        <p class="fs-5 fw-bold mb-0">{{ activeUsers }}</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="user-stat card p-3 text-center">
+        <i class="pi pi-times-circle text-danger fs-4 mb-2"></i>
+        <h5 class="mb-1">Inactive Users</h5>
+        <p class="fs-5 fw-bold mb-0">{{ inactiveUsers }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Main data table -->
+  <app-crud-table
+    class="p-2"
+    [columns]="tableColumns"
+    [data]="tableData"
+    [searchTerm]="searchTerm"
+    (onView)="handleView($event)"
+    (onEdit)="handleEdit($event)"
+    (onDelete)="handleDelete($event)"
+  ></app-crud-table>
+</div>
