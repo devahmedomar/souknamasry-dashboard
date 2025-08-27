@@ -1,1 +1,79 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <!-- Logo for the company -->
+  <img
+    id="company-logo"
+    src="assets/soukna_masry_logo.png"
+    alt="soukna_masry_logo"
+  />
+
+  <!-- PrimeNG Card to contain the login form -->
+  <p-card class="login-card">
+    <!-- Template-driven form with reference #loginForm -->
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <div class="login-container">
+        <div class="login-form">
+          <!-- Heading -->
+          <h2>Welcome back!</h2>
+          <p>Please enter your email or phone to log in.</p>
+
+          <!-- Input for email or phone -->
+          <div class="p-field">
+            <input
+              id="emailOrPhone"
+              name="emailOrPhone"
+              type="text"
+              pInputText
+              placeholder="Email or phone"
+              [(ngModel)]="loginData.emailOrPhone"
+              required
+            />
+          </div>
+
+          <!-- Password input with toggle visibility -->
+          <div class="p-field">
+            <br />
+            <p-password
+              id="password"
+              name="password"
+              placeholder="Password"
+              [(ngModel)]="loginData.password"
+              [toggleMask]="true"
+              required
+            ></p-password>
+          </div>
+
+          <!-- Remember me checkbox and forgot password link -->
+          <div class="options">
+            <div class="checkbox-group">
+              <p-checkbox
+                name="remember"
+                [(ngModel)]="loginData.remember"
+                inputId="remember"
+              ></p-checkbox>
+              <label for="remember">Remember me</label>
+            </div>
+
+            <!-- Forgot password link -->
+            <a href="#" class="forgot-link">Forget Password?</a>
+          </div>
+
+          <!-- Submit button -->
+          <button
+            pButton
+            type="submit"
+            label="Log In"
+            class="login-button"
+          ></button>
+          <div *ngIf="errorMessage" style="color: red; margin-top: 10px">
+            {{ errorMessage }}
+          </div>
+        </div>
+
+        <!-- Side image for visual design -->
+        <div class="login-image">
+          <img src="assets/login-page-img.png" alt="Login Illustration" />
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>
