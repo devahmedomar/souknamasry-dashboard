@@ -21,6 +21,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'users', component: UsersComponent },
       { path: 'users/add', component: AddUserComponent },
+      {path: 'users/edit/:id' , component: AddUserComponent},
       { path: 'orders', component: OrdersComponent },
       { path: 'orders/add', component: AddOrderComponent },
       { path: 'stores', component: StoresComponent },

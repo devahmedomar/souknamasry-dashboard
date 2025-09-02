@@ -1,1 +1,5 @@
-<p>add-store works!</p>
+<app-reusable-form
+  [formTitle]="'Add Store'"
+  [fields]="storeFields"
+  (formSubmit)="saveStore($event)">
+</app-reusable-form>
