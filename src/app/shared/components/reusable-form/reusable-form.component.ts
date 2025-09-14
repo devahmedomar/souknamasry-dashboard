@@ -6,16 +6,17 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 
-/** Interface for dynamic form fields */
+// Interface to define each form field structure
 export interface FormField {
-  name: string;                                     // form control name
-  type: string;                                     // input type (text, textarea, dropdown, etc.)
-  label?: string;                                   // field label
-  placeholder?: string;                             // input placeholder
-  options?: { label: string; value: any }[];        // dropdown options
-  required?: boolean;                               // if true → field is required
-  col?: number;                                     // bootstrap column size (default 12)
-  [key: string]: any;                               // allow extra props (to avoid errors)
+  name: string;                                // form control name
+  type: string;                                // field type: text, textarea, dropdown, etc.
+  label?: string;                              // field label
+  placeholder?: string;                        // placeholder text
+  options?: { label: string; value: any }[];   // options for dropdown
+  required?: boolean;                          // mark field as required
+  validators?: any[];                          // custom validators
+  col?: number;                                // column size (Bootstrap grid)
+  [key: string]: any;                          // allow extra properties if needed
 }
 
 @Component({
@@ -32,55 +33,61 @@ export interface FormField {
   templateUrl: './reusable-form.component.html',
   styleUrls: ['./reusable-form.component.css']
 })
-export class ReusableFormComponent implements OnInit, OnChanges {
-  /** Form title shown at the top */
+export class ReusableFormComponent<T = any> implements OnInit, OnChanges {
+  // Title displayed at the top of the form
   @Input() formTitle: string = 'Add Item';
-  
-  /** Dynamic fields configuration */
+
+  // List of fields to render dynamically
   @Input() fields: FormField[] = [];
 
-  /** Initial data for editing mode */
-  @Input() initialData: any = null;
+  // Initial data (used for editing an existing item)
+  @Input() initialData: Partial<T> | null = null;
 
-  /** Emits form values when submitted */
-  @Output() formSubmit = new EventEmitter<any>();
+  // Emit form values when form is submitted
+  @Output() formSubmit = new EventEmitter<T>();
 
-  /** Main reactive form group */
+  // Reactive form group
   formGroup: FormGroup = new FormGroup({});
 
-  /** Lifecycle hook - build form on init */
+  // Build the form when the component initializes
   ngOnInit() {
     this.buildForm();
   }
 
-  /** Lifecycle hook - update form values when initialData changes */
+  // Handle changes to inputs (fields or initial data)
   ngOnChanges(changes: SimpleChanges) {
+    if (changes['fields'] && this.fields?.length) {
+      this.buildForm();
+    }
     if (changes['initialData'] && this.formGroup) {
+      // Patch existing values into form (useful for edit mode)
       this.formGroup.patchValue(this.initialData || {});
     }
   }
 
-  /** Build form dynamically based on fields input */
+  // Dynamically build the form controls based on fields config
   private buildForm() {
-    let group: any = {};
+    const group: Record<string, FormControl> = {};
     this.fields.forEach(field => {
       group[field.name] = new FormControl(
-        this.initialData ? this.initialData[field.name] : '', // set initial value if provided
-        field.required ? Validators.required : null           // add required validation if needed
+        this.initialData ? (this.initialData as any)[field.name] : '', // set initial value if exists
+        field.validators || (field.required ? [Validators.required] : []) // add validators
       );
     });
     this.formGroup = new FormGroup(group);
   }
 
-  /** Handle form submit */
+  // Submit form and emit values if form is valid
   onSubmit() {
     if (this.formGroup.valid) {
-      this.formSubmit.emit(this.formGroup.value); // emit form data to parent
+      this.formSubmit.emit(this.formGroup.value as T); // cast to generic type T
+    } else {
+      this.formGroup.markAllAsTouched(); // mark all controls to show validation errors
     }
   }
 
-  /** Handle cancel - reset form */
+  // Reset form to initial values (useful for cancel action)
   onCancel() {
-    this.formGroup.reset();
+    this.formGroup.reset(this.initialData || {});
   }
 }
