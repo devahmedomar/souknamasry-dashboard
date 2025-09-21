@@ -10,7 +10,9 @@ export interface Store {
   email?: string;
   numberOfProducts?: number;
   status: 'active' | 'inactive';
+  images?: string[]; // ✅ add images
 }
+
 
 @Injectable({ providedIn: 'root' })
 export class StoresService {
@@ -53,6 +55,10 @@ export class StoresService {
         email: 'main@store.com',
         numberOfProducts: 120,
         status: 'active',
+         images: [
+       ' assets/images/shop3 2.png',
+      'assets/images/shop5 1.png'
+        ]
       },
       {
         id: 2,
@@ -62,6 +68,82 @@ export class StoresService {
         email: 'alex@store.com',
         numberOfProducts: 80,
         status: 'inactive',
+        images: [
+          'assets/images/shop6 1.png'
+        ]
+      },
+       {
+        id: 2,
+        name: 'Alex Store',
+        location: 'Alexandria',
+        shopOwner: 'Sara Ali',
+        email: 'alex@store.com',
+        numberOfProducts: 80,
+        status: 'inactive',
+        images: [
+          'assets/images/shop7 1.png'
+        ]
+      },
+      {
+        id: 2,
+        name: 'Alex Store',
+        location: 'Alexandria',
+        shopOwner: 'Sara Ali',
+        email: 'alex@store.com',
+        numberOfProducts: 80,
+        status: 'inactive',
+        images: [
+          'assets/images/shop7 1.png'
+        ]
+      },
+      {
+        id: 1,
+        name: 'Main Store',
+        location: 'Cairo',
+        shopOwner: 'Ahmed Hassan',
+        email: 'main@store.com',
+        numberOfProducts: 120,
+        status: 'active',
+         images: [
+       ' assets/images/shop3 2.png',
+      'assets/images/shop5 1.png'
+        ]
+      },
+      {
+        id: 2,
+        name: 'Alex Store',
+        location: 'Alexandria',
+        shopOwner: 'Sara Ali',
+        email: 'alex@store.com',
+        numberOfProducts: 80,
+        status: 'inactive',
+        images: [
+          'assets/images/shop6 1.png'
+        ]
+      },
+       {
+        id: 2,
+        name: 'Alex Store',
+        location: 'Alexandria',
+        shopOwner: 'Sara Ali',
+        email: 'alex@store.com',
+        numberOfProducts: 80,
+        status: 'inactive',
+        images: [
+          'assets/images/shop7 1.png'
+        ]
+      },
+      {
+        id: 2,
+        name: 'Alex Store',
+        location: 'Alexandria',
+        shopOwner: 'Sara Ali',
+        email: 'alex@store.com',
+        numberOfProducts: 80,
+        status: 'inactive',
+        images: [
+          'assets/images/shop7 1.png'
+        ]
       },
     ];
   }
