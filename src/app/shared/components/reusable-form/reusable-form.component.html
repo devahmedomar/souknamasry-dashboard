@@ -1,0 +1,89 @@
+<!-- Wrapper -->
+<div class="d-flex justify-content-center align-items-center vh-100 page-wrapper">
+  
+  <!-- Main card -->
+  <div class="card shadow-lg form-card">
+    
+    <!-- Header -->
+    <div class="text-center mb-4">
+      <i class="pi pi-plus-circle" style="font-size: 2.5rem; color: #6B4226;"></i>
+      <h2 class="mt-2" style="color:#4E342E;">{{ formTitle }}</h2>
+    </div>
+
+    <!-- Dynamic Form -->
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        
+        <!-- Loop fields -->
+        <ng-container *ngFor="let field of fields">
+          <div class="mb-3" [ngClass]="'col-md-' + (field.col || 12)">
+            
+            <!-- Text -->
+            <ng-container *ngIf="field.type === 'text'">
+              <label class="form-label">{{ field.label }}</label>
+              <input pInputText 
+                     type="text"
+                     class="form-control"
+                     [formControlName]="field.name"
+                     [placeholder]="field.placeholder">
+            </ng-container>
+
+            <!-- Number -->
+            <ng-container *ngIf="field.type === 'number'">
+              <label class="form-label">{{ field.label }}</label>
+              <input type="number"
+                     class="form-control"
+                     [formControlName]="field.name"
+                     [placeholder]="field.placeholder">
+            </ng-container>
+
+            <!-- Date -->
+            <ng-container *ngIf="field.type === 'date'">
+              <label class="form-label">{{ field.label }}</label>
+              <input type="date"
+                     class="form-control"
+                     [formControlName]="field.name"
+                     [placeholder]="field.placeholder">
+            </ng-container>
+
+            <!-- Textarea -->
+            <ng-container *ngIf="field.type === 'textarea'">
+              <label class="form-label">{{ field.label }}</label>
+              <textarea pInputTextarea
+                        class="form-control"
+                        rows="3"
+                        [formControlName]="field.name"
+                        [placeholder]="field.placeholder"></textarea>
+            </ng-container>
+
+            <!-- Dropdown -->
+            <ng-container *ngIf="field.type === 'dropdown'">
+              <label class="form-label">{{ field.label }}</label>
+              <p-dropdown [options]="field.options"
+                          [placeholder]="field.placeholder"
+                          [formControlName]="field.name">
+              </p-dropdown>
+            </ng-container>
+
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between mt-4">
+        <button pButton 
+                type="submit" 
+                label="Save" 
+                class="p-button-rounded save-btn">
+        </button>
+
+        <button pButton 
+                type="button" 
+                label="Cancel" 
+                class="p-button-rounded cancel-btn"
+                (click)="onCancel()">
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

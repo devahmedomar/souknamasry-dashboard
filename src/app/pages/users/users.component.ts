@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService , User } from '../../shared/services/users.service';
 import { CommonModule } from '@angular/common';
 import { CrudTableComponent } from '../../shared/components/crud-table/crud-table.component';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
@@ -10,176 +11,71 @@ import { ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CrudTableComponent, CommonModule, SearchBarComponent, ReportButtonComponent, DateRangeComponent ],
+  imports: [CrudTableComponent,CommonModule,SearchBarComponent,ReportButtonComponent,DateRangeComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
   encapsulation: ViewEncapsulation.None
 })
 export class UsersComponent {
+  // Search term (used with search bar)
+  searchTerm = '';
 
-  
-constructor(private router: Router) {}
+  // ✅ Instead of storing tableData here, we fetch it directly from the service (Observable)
+  users$ = this.usersService.users$;
 
-handleAddUser() {
-  this.router.navigate(['/users/add']);
-}
-
-  ngOnInit(): void {
-  console.log('UsersComponent initialized');
-}
-
-   searchTerm = ''; //reccive search results
-
-  handleSearch(term: string) {
-  this.searchTerm = term;
-}
-
-  // ✅ Columns definition for the CRUD table
+  // Table columns configuration
   tableColumns = [
-    { field: 'name', header: 'Name', width: '150px', },
+    { field: 'name', header: 'Name', width: '150px' },
     { field: 'status', header: 'Status', width: '120px' },
     { field: 'phone', header: 'Phone Number', width: '150px' },
     { field: 'hasOrder', header: 'Has Order?', width: '120px' },
     { field: 'email', header: 'Email', width: '250px' },
   ];
 
-  // ✅ Sample data to display in the table
-  tableData = [
-    {
-      id: 1,
-      name: 'Shahd Othman',
-      status: 'active',
-      phone: '01012345678',
-      hasOrder: true,
-      email: 'shahd@example.com'
-    },
-    {
-      id: 2,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 3,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 4,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 5,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 6,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 7,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 8,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 9,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 10,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 11,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 12,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    {
-      id: 13,
-      name: 'Mohamed Ali',
-      status: 'inactive',
-      phone: '01098765432',
-      hasOrder: false,
-      email: 'mo@example.com'
-    },
-    
-  ];
+  constructor(
+    private router: Router,
+    private usersService: UsersService
+  ) {}
 
-  // ✅ Handle view action from the table
-  handleView(user: any) {
+  ngOnInit(): void {
+    console.log('UsersComponent initialized');
+  }
+
+  // Navigate to Add User page
+  handleAddUser() {
+    this.router.navigate(['/users/add']);
+  }
+
+  // Update search term
+  handleSearch(term: string) {
+    this.searchTerm = term;
+  }
+
+  // Table actions
+  handleView(user: User) {
     console.log('Viewing:', user);
   }
 
-  // ✅ Handle edit action from the table
-  handleEdit(user: any) {
-    console.log('Editing:', user);
+  handleEdit(user: User) {
+    this.router.navigate(['/users/edit', user.id]);
   }
 
-  // ✅ Handle delete action from the table
-  handleDelete(user: any) {
+  handleDelete(user: User) {
     if (confirm(`Are you sure you want to delete ${user.name}?`)) {
-      this.tableData = this.tableData.filter(u => u.id !== user.id);
+      this.usersService.remove(user.id);
     }
   }
 
- 
-
+  // Stats (calculated from service data)
   get totalUsers() {
-  return this.tableData.length;
-}
+    return this.usersService.getAll().length;
+  }
 
-get activeUsers() {
-  return this.tableData.filter(user => user.status.toLowerCase() === 'active').length;
-}
+  get activeUsers() {
+    return this.usersService.getAll().filter(user => user.status.toLowerCase() === 'active').length;
+  }
 
-get inactiveUsers() {
-  return this.tableData.filter(user => user.status.toLowerCase() === 'inactive').length;
-}
+  get inactiveUsers() {
+    return this.usersService.getAll().filter(user => user.status.toLowerCase() === 'inactive').length;
+  }
 }

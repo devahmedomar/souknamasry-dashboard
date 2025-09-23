@@ -52,7 +52,7 @@
       [data]="filteredOrders()"
       [searchTerm]="searchTerm()"
       (onView)="handleView($event)"
-      (onEdit)="handleEdit($event)"
+      basePath="/orders"
       (onDelete)="handleDelete($event)"
     >
     </app-crud-table>

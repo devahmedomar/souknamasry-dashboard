@@ -1,1 +1,6 @@
-<p>add-user works!</p>
+<app-reusable-form
+  [formTitle]="editId ? 'Edit User' : 'Add User'"
+  [fields]="userFields"
+  [initialData]="initialData"
+  (formSubmit)="saveUser($event)">
+</app-reusable-form>

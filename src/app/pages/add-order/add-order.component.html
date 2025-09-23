@@ -1,1 +1,8 @@
-<p>add-order works!</p>
+<div class="add-order-page">
+  <app-reusable-form
+    [formTitle]="editId ? 'Edit Order' : 'Add Order'"
+    [fields]="orderFields"
+    [initialData]="initialData"
+    (formSubmit)="saveOrder($event)">
+  </app-reusable-form>
+</div>
