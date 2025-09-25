@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule } from 'primeng/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crud-table',
@@ -39,8 +40,11 @@ export class CrudTableComponent {
       )
     );
   }
-
-  //  Simple confirm before delete
+  constructor(public router: Router) {}
+handleEdit(user: any) {
+  this.router.navigate(['/users/edit', user.id]);
+}
+  //  confirm before delete
   confirmDelete(row: any) {
     if (confirm('⚠️ Are you sure you want to delete this record?')) {
       this.onDelete.emit(row);

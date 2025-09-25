@@ -1,0 +1,82 @@
+/* Page Background */
+.page-wrapper {
+  background: linear-gradient(135deg, #f3ebe6, #fdfcfb);
+}
+
+/* Card Container */
+.form-card {
+  max-width: 900px;   
+  width: 100%;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid #e0d6d1;
+  padding: 50px 60px; 
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  color: #4E342E;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs & Textarea & Dropdown */
+.form-control, 
+.p-inputtext, 
+.p-inputtextarea, 
+.p-dropdown {
+  border-radius: 10px !important;
+  border: 1px solid #c7b9b4 !important;
+  padding: 10px 12px !important;
+  font-size: 15px;
+  color: #4E342E;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+/* Remove blue outline */
+.form-control:focus,
+.p-inputtext:focus,
+.p-inputtextarea:focus,
+.p-dropdown:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #6B4226 !important;
+}
+
+/* Dropdown Styling */
+.p-dropdown {
+  height: 42px;
+}
+
+/* Buttons */
+.p-button {
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 12px !important;
+}
+
+/* Rounded buttons */
+.p-button.p-button-rounded {
+  border-radius: 30px !important;
+}
+
+/* Save Button */
+.save-btn {
+  background: #6B4226 !important;
+  border: none !important;
+}
+.save-btn:hover {
+  background: #4E342E !important;
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background: #c7b9b4 !important;
+  color: #4E342E !important;
+  border: none !important;
+}
+.cancel-btn:hover {
+  background: #b5a29c !important;
+}

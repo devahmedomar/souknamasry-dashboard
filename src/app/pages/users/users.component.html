@@ -48,12 +48,13 @@
 
   <!-- ✅ Main data table -->
   <app-crud-table
-    class="p-2"
-    [columns]="tableColumns"
-    [data]="tableData"
-    [searchTerm]="searchTerm"
-    (onView)="handleView($event)"
-    (onEdit)="handleEdit($event)"
-    (onDelete)="handleDelete($event)"
-  ></app-crud-table>
+  [columns]="tableColumns"
+  [data]="(users$ | async) ?? []"
+  [searchTerm]="searchTerm"
+  (onView)="handleView($event)"
+  (onEdit)="handleEdit($event)"
+  (onDelete)="handleDelete($event)"
+></app-crud-table>
+
+
 </div>

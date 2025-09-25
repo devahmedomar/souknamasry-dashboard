@@ -1,0 +1,69 @@
+<!-- Full page wrapper with center alignment -->
+<div class="d-flex justify-content-center align-items-center vh-100 page-wrapper">
+  
+  <!-- Main form card -->
+  <div class="card shadow-lg form-card">
+    
+    <!-- Card header: icon + title -->
+    <div class="text-center mb-4">
+      <i class="pi pi-plus-circle" style="font-size: 2.5rem; color: #6B4226;"></i>
+      <h2 class="mt-2" style="color:#4E342E;">{{ formTitle }}</h2>
+    </div>
+
+    <!-- Dynamic form -->
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- Loop through fields -->
+        <ng-container *ngFor="let field of fields">
+
+          <!-- Field wrapper with column size -->
+          <div class="mb-3" [ngClass]="'col-md-' + (field.col || 12)">
+
+            <!-- Text input -->
+            <label *ngIf="field.type === 'text'" class="form-label">{{ field.label }}</label>
+            <input *ngIf="field.type === 'text'" 
+                   pInputText 
+                   class="form-control" 
+                   [formControlName]="field.name" 
+                   [placeholder]="field.placeholder">
+
+            <!-- Textarea -->
+            <label *ngIf="field.type === 'textarea'" class="form-label">{{ field.label }}</label>
+            <textarea *ngIf="field.type === 'textarea'" 
+                      pInputTextarea 
+                      class="form-control" 
+                      [formControlName]="field.name" 
+                      rows="3"></textarea>
+
+            <!-- Dropdown -->
+            <label *ngIf="field.type === 'dropdown'" class="form-label">{{ field.label }}</label>
+            <p-dropdown *ngIf="field.type === 'dropdown'" 
+                        [options]="field.options" 
+                        [placeholder]="field.placeholder" 
+                        [formControlName]="field.name">
+            </p-dropdown>
+
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Form buttons -->
+      <div class="d-flex justify-content-between mt-4">
+        <!-- Save button -->
+        <button pButton 
+                type="submit" 
+                label="Save" 
+                class="p-button-rounded save-btn">
+        </button>
+
+        <!-- Cancel button -->
+        <button pButton 
+                type="button" 
+                label="Cancel" 
+                class="p-button-rounded cancel-btn" 
+                (click)="onCancel()">
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
