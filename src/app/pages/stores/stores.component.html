@@ -16,53 +16,35 @@
   </div>
 
   <!-- Cards -->
-  <div>
-    <div class="row g-4">
-      <div
-        *ngFor="let store of filteredStores"
-        class="col-sm-12 col-md-6 col-lg-4 col-xxl-3"
-      >
-        <div class="card card-width rounded p-3">
-          <!-- Store Images -->
-          <div class="row g-2" *ngIf="store['images']?.length">
-            <div
-              *ngFor="let img of store['images']"
-              class="{{ store.images?.length === 2 ? 'col-6' : 'col-12' }}"
-            >
-              <img
-                [src]="img"
-                alt="store"
-                class="img-fluid rounded"
-                style="object-fit: cover"
-              />
-            </div>
-          </div>
+  <div class="row g-4">
+    <div *ngFor="let store of filteredStores" class="col-sm-12 col-md-6 col-lg-4 col-xxl-3">
+      <div class="card h-100">
 
-          <!-- Store Details -->
-          <div class="card-body">
-            <h5 class="card-title">{{ store.name }}</h5>
-            <p class="card-text text-muted">
-              {{ store.location || 'No location provided' }}
-            </p>
-            <p class="card-text text-muted">
-              Owner: {{ store.shopOwner || 'N/A' }}
-            </p>
-
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <p class="text-secondary mb-0">
-                {{ store.numberOfProducts || 0 }} Products
-              </p>
-              <span
-                class="btn"
-                [ngClass]="
-                  store.status === 'active' ? 'bg-success' : 'bg-secondary'
-                "
-              >
-                {{ store.status }}
-              </span>
-            </div>
+        <!-- Store Images -->
+        <div class="row g-2" *ngIf="store['images']?.length">
+          <div 
+            *ngFor="let img of store['images']" 
+            class="{{ store.images?.length === 2 ? 'col-6 p-3' : 'col-12 p-3' }}"
+          >
+            <img [src]="img" alt="store" class="img-fluid rounded" />
           </div>
         </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">{{ store.name }}</h5>
+          <p class="card-text">{{ store.location || 'No location provided' }}</p>
+          <p class="card-text">Owner: {{ store.shopOwner || 'N/A' }}</p>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer">
+          <p class="text-secondary mb-0">{{ store.numberOfProducts || 0 }} Products</p>
+          <span class="btn" [ngClass]="store.status === 'active' ? 'btn-active' : 'btn-inactive'">
+            {{ store.status }}
+          </span>
+        </div>
+
       </div>
     </div>
   </div>
