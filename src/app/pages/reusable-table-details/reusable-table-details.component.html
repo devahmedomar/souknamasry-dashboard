@@ -2,15 +2,12 @@
   <div class="card user-details-card">
     <div class="card-body text-center">
 
-      <!-- Avatar Icon -->
+      <!-- Icon -->
       <div class="user-avatar">
-        <i
-          class="pi"
-          [ngClass]="type === 'users' ? 'pi-user' : 'pi-shopping-cart'">
-        </i>
+        <i class="pi" [ngClass]="type === 'users' ? 'pi-user' : 'pi-shopping-cart'"></i>
       </div>
 
-      <!-- Title -->
+      <!-- Card Title -->
       <h3 class="card-title mb-4 fw-bold text-dark">
         {{ type === 'users' ? 'User Details' : 'Order Details' }}
       </h3>
@@ -18,7 +15,7 @@
       <!-- Details List -->
       <div class="details-list text-start">
 
-        <!--  User Details -->
+        <!-- User Details -->
         <ng-container *ngIf="type === 'users'">
           <div class="detail-item">
             <i class="pi pi-user icon"></i>
@@ -35,7 +32,20 @@
           <div class="detail-item">
             <i class="pi pi-check-circle icon"></i>
             <strong>Has Order:</strong>
-            <span>{{ item.hasOrder }}</span>
+
+            <!-- If user has order -->
+            <span
+              *ngIf="item.hasOrder; else noOrder"
+              class="text-primary fw-semibold link-text"
+              style="cursor: pointer;"
+              (click)="goToOrderDetails()">
+              Yes
+            </span>
+
+            <!-- If no order -->
+            <ng-template #noOrder>
+              <span>No</span>
+            </ng-template>
           </div>
 
           <div class="detail-item">
@@ -47,8 +57,7 @@
           <div class="detail-item">
             <i class="pi pi-bolt icon"></i>
             <strong>Status:</strong>
-            <span class="status-badge"
-                  [ngClass]="'status-' + item.status?.toLowerCase()">
+            <span class="status-badge" [ngClass]="'status-' + item.status?.toLowerCase()">
               {{ item.status }}
             </span>
           </div>
@@ -56,7 +65,6 @@
 
         <!-- Order Details -->
         <ng-container *ngIf="type === 'orders'">
-
           <div class="detail-item">
             <i class="pi pi-hashtag icon"></i>
             <strong>Order ID:</strong>
@@ -99,15 +107,11 @@
             <span>{{ item.address }}</span>
           </div>
 
-          <!-- Status with icon -->
+          <!-- Order Status -->
           <div class="detail-item">
             <i class="pi pi-bolt icon"></i>
             <strong>Status:</strong>
-
-            <span
-              class="status-badge"
-              [ngClass]="'status-' + item.status?.toLowerCase()"
-            >
+            <span class="status-badge" [ngClass]="'status-' + item.status?.toLowerCase()">
               <i
                 class="pi me-1"
                 [ngClass]="{
@@ -116,12 +120,11 @@
                   'pi-box': item.status?.toLowerCase() === 'delivered',
                   'pi-times-circle': item.status?.toLowerCase() === 'cancelled',
                   'pi-check-circle': item.status?.toLowerCase() === 'active'
-                }"
-              ></i>
+                }">
+              </i>
               {{ item.status }}
             </span>
           </div>
-
         </ng-container>
       </div>
 
@@ -133,7 +136,6 @@
           label="Back"
           class="btn btn-secondary"
           (click)="goBack()">
-          Back
         </button>
       </div>
 

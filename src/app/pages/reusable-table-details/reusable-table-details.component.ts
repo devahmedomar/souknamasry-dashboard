@@ -24,31 +24,38 @@ export class ReusableTableDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Get type and id from the route
-    this.type = this.route.snapshot.paramMap.get('type')!;
-    const idParam = this.route.snapshot.paramMap.get('id')!;
+    // Watch route params and load the correct data
+    this.route.paramMap.subscribe(params => {
+      this.type = params.get('type')!;
+      const idParam = params.get('id')!;
 
-    // Fetch user data
-    if (this.type === 'users') {
-      this.id = Number(idParam);
-      this.usersService.getById(this.id).subscribe({
-        next: data => (this.item = data),
-        error: err => console.error('Error fetching user:', err)
-      });
-    }
-
-    // Fetch order data
-    else if (this.type === 'orders') {
-      this.id = idParam;
-      this.ordersService.getById(this.id).subscribe({
-        next: data => (this.item = data),
-        error: err => console.error('Error fetching order:', err)
-      });
-    }
+      if (this.type === 'users') {
+        this.id = Number(idParam);
+        this.usersService.getById(this.id).subscribe({
+          next: data => (this.item = data),
+          error: err => console.error('Error fetching user:', err)
+        });
+      } else if (this.type === 'orders') {
+        this.id = idParam;
+        this.ordersService.getById(this.id).subscribe({
+          next: data => (this.item = data),
+          error: err => console.error('Error fetching order:', err)
+        });
+      }
+    });
   }
 
-  // Navigate back to the list
+  // Navigate back to list
   goBack(): void {
     this.router.navigate([`/${this.type}`]);
+  }
+
+  // Navigate from user → related order
+  goToOrderDetails(): void {
+    if (this.item?.orderId) {
+      this.router.navigate(['/details', 'orders', this.item.orderId]);
+    } else {
+      alert('This user has no linked order.');
+    }
   }
 }

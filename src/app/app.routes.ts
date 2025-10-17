@@ -31,7 +31,9 @@ export const routes: Routes = [
       { path: 'roles', component: RolesComponent },
       { path: 'roles/add', component: AddRoleComponent },
       { path: 'settings', component: SettingsComponent },
-      {path: 'details/:type/:id',component: ReusableTableDetailsComponent}
+      {path: 'details/:type/:id',component: ReusableTableDetailsComponent},
+      { path: 'details/orders/:id', component: ReusableTableDetailsComponent },
+
 
       
     ],

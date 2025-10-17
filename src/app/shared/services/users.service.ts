@@ -10,6 +10,7 @@ export interface User {
   phone?: string;
   email?: string;
   hasOrder?: boolean;
+  orderId?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -26,7 +27,7 @@ export class UsersService {
     return this._users$.value;
   }
 
-  /* Reset users => always fallback data (ignore localStorage) */
+  /* Reset users => always fallback data  */
   reset() {
     this.next(this._getFallback());
   }
@@ -46,32 +47,72 @@ export class UsersService {
     }
   }
 
-  /* Fallback default users (used when reset or initial load) */
-  private _getFallback(): User[] {
-    return [
-      { id: 1, name: 'Shahd Othman', status: 'active', phone: '01012345678', hasOrder: true, email: 'shahd@example.com' },
-      { id: 2, name: 'Mohamed Ali', status: 'inactive', phone: '01098765432', hasOrder: false, email: 'mo@example.com' },
-      { id: 3, name: 'Mohamed Ahmed', status: 'active', phone: '01098765432', hasOrder: true, email: 'mo.ahmed@example.com' },
-      { id: 4, name: 'Sara Hassan', status: 'active', phone: '01055556666', hasOrder: false, email: 'sara@example.com' },
-      { id: 5, name: 'Omar Youssef', status: 'inactive', phone: '01077778888', hasOrder: true, email: 'omar@example.com' },
-    ];
-  }
+  /* Fallback default users  */
+     private _getFallback(): User[] {
+  return [
+    {
+      id: 1,
+      name: 'Ahmed Ali',
+      status: 'active',
+      phone: '01012345678',
+      hasOrder: true,
+      email: 'ahmed@example.com',
+      orderId: '1001'
+    },
+    {
+      id: 2,
+      name: 'Sara Youssef',
+      status: 'active',
+      phone: '01098765432',
+      hasOrder: true,
+      email: 'sara@example.com',
+      orderId: '1002'
+    },
+    {
+      id: 3,
+      name: 'Omar Mohamed',
+      status: 'active',
+      phone: '01055556666',
+      hasOrder: true,
+      email: 'omar@example.com',
+      orderId: '1003'
+    },
+    {
+      id: 4,
+      name: 'Mona Adel',
+      status: 'active',
+      phone: '01077778888',
+      hasOrder: true,
+      email: 'mona@example.com',
+      orderId: '1004'
+    },
+    {
+      id: 5,
+      name: 'Shahd Othman',
+      status: 'inactive',
+      phone: '01022223333',
+      hasOrder: false,
+      email: 'shahd@example.com'
+    }
+  ];
+}
+
 
   // =====================
   //  CRUD methods
   // =====================
 
-  /* Return all users as array */
+  /* Return all users */
   getAll(): User[] {
     return this.data;
   }
 
-  /* Find user by id as observable (async) */
+  /* Find user by id  */
   getById(id: number): Observable<User | undefined> {
     return this.users$.pipe(map(users => users.find(u => u.id === id)));
   }
 
-  /* Add a new user (id auto-generated) */
+  /* Add a new user  */
   add(user: Pick<User, 'name' | 'status'> & Partial<User>) {
     const id = this.data.length ? Math.max(...this.data.map(u => u.id)) + 1 : 1;
     const newUser: User = { id, ...user };
