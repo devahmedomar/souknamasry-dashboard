@@ -50,10 +50,13 @@
     <app-crud-table
       [columns]="columns"
       [data]="filteredOrders()"
+      [type]="'orders'"
+      (rowClick)="handleRowClick($event)"
       [searchTerm]="searchTerm()"
       (onView)="handleView($event)"
-      (onEdit)="handleEdit($event)"
-      (onDelete)="handleDelete($event)"
+      basePath="/orders"
+      (onDelete)="deleteOrder($event)"
+
     >
     </app-crud-table>
   </div>

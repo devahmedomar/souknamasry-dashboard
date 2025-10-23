@@ -12,7 +12,7 @@ import { StoresService, Store } from '../../shared/services/stores.service';
 })
 export class StoresComponent {
   searchTerm: string = '';
-  stores: Store[] = []; // stores data will come from service
+  stores: Store[] = []; // stores from service
 
   constructor(private storesService: StoresService) {}
 

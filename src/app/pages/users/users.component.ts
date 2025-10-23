@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ReportButtonComponent } from "../../shared/components/report-button/report-button.component";
 import { DateRangeComponent } from "../../shared/components/date-range/date-range.component";
 import { ViewEncapsulation } from '@angular/core';
+import { ReusableTableDetailsComponent } from '../reusable-table-details/reusable-table-details.component';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +21,7 @@ export class UsersComponent {
   // Search term (used with search bar)
   searchTerm = '';
 
-  // ✅ Instead of storing tableData here, we fetch it directly from the service (Observable)
+  // fetch from the service 
   users$ = this.usersService.users$;
 
   // Table columns configuration
@@ -78,4 +79,12 @@ export class UsersComponent {
   get inactiveUsers() {
     return this.usersService.getAll().filter(user => user.status.toLowerCase() === 'inactive').length;
   }
+  // Navigate to the details page 
+  handleRowClick(user: any) {
+  this.router.navigate(['/details', 'users', user.id]);
+}
+
+
+
+
 }

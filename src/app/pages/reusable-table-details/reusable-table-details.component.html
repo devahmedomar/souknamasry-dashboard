@@ -1,0 +1,152 @@
+<div class="user-details-container" *ngIf="item; else loadingTpl">
+  <div class="card user-details-card">
+    <div class="card-body text-center">
+
+      <!-- Icon -->
+      <div class="user-avatar">
+        <i class="pi" [ngClass]="type === 'users' ? 'pi-user' : 'pi-shopping-cart'"></i>
+      </div>
+
+      <!-- Card Title -->
+      <h3 class="card-title mb-4 fw-bold text-dark">
+        {{ type === 'users' ? 'User Details' : 'Order Details' }}
+      </h3>
+
+      <!-- Details List -->
+      <div class="details-list text-start">
+
+        <!-- User Details -->
+        <ng-container *ngIf="type === 'users'">
+          <div class="detail-item">
+            <i class="pi pi-user icon"></i>
+            <strong>Name:</strong>
+            <span>{{ item.name }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-envelope icon"></i>
+            <strong>Email:</strong>
+            <span>{{ item.email }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-check-circle icon"></i>
+            <strong>Has Order:</strong>
+
+            <!-- If user has order -->
+            <span
+              *ngIf="item.hasOrder; else noOrder"
+              class="text-primary fw-semibold link-text"
+              style="cursor: pointer;"
+              (click)="goToOrderDetails()">
+              Yes
+            </span>
+
+            <!-- If no order -->
+            <ng-template #noOrder>
+              <span>No</span>
+            </ng-template>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-phone icon"></i>
+            <strong>Phone:</strong>
+            <span>{{ item.phone }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-bolt icon"></i>
+            <strong>Status:</strong>
+            <span class="status-badge" [ngClass]="'status-' + item.status?.toLowerCase()">
+              {{ item.status }}
+            </span>
+          </div>
+        </ng-container>
+
+        <!-- Order Details -->
+        <ng-container *ngIf="type === 'orders'">
+          <div class="detail-item">
+            <i class="pi pi-hashtag icon"></i>
+            <strong>Order ID:</strong>
+            <span>{{ item.id }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-user icon"></i>
+            <strong>Customer:</strong>
+            <span>{{ item.customer }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-calendar icon"></i>
+            <strong>Date:</strong>
+            <span>{{ item.date | date }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-dollar icon"></i>
+            <strong>Total:</strong>
+            <span>{{ item.total | currency }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-credit-card icon"></i>
+            <strong>Payment:</strong>
+            <span>{{ item.payment }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-list icon"></i>
+            <strong>Items:</strong>
+            <span>{{ item.items }}</span>
+          </div>
+
+          <div class="detail-item">
+            <i class="pi pi-map-marker icon"></i>
+            <strong>Shipping:</strong>
+            <span>{{ item.address }}</span>
+          </div>
+
+          <!-- Order Status -->
+          <div class="detail-item">
+            <i class="pi pi-bolt icon"></i>
+            <strong>Status:</strong>
+            <span class="status-badge" [ngClass]="'status-' + item.status?.toLowerCase()">
+              <i
+                class="pi me-1"
+                [ngClass]="{
+                  'pi-clock': item.status?.toLowerCase() === 'pending',
+                  'pi-truck': item.status?.toLowerCase() === 'shipped',
+                  'pi-box': item.status?.toLowerCase() === 'delivered',
+                  'pi-times-circle': item.status?.toLowerCase() === 'cancelled',
+                  'pi-check-circle': item.status?.toLowerCase() === 'active'
+                }">
+              </i>
+              {{ item.status }}
+            </span>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Back Button -->
+      <div class="mt-4">
+        <button
+          pButton
+          icon="pi pi-arrow-left"
+          label="Back"
+          class="btn btn-secondary"
+          (click)="goBack()">
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Loading Template -->
+<ng-template #loadingTpl>
+  <div class="loading-container text-center py-5">
+    <i class="pi pi-spin pi-spinner text-primary" style="font-size: 2rem;"></i>
+    <p class="mt-3 text-secondary fs-5">Loading data...</p>
+  </div>
+</ng-template>
