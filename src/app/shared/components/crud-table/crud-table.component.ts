@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class CrudTableComponent {
+  @Input() basePath: string = '';
   // Table columns configuration
   @Input() columns: { field: string; header: string; width?: string }[] = [];
 
@@ -41,8 +42,8 @@ export class CrudTableComponent {
     );
   }
   constructor(public router: Router) {}
-handleEdit(user: any) {
-  this.router.navigate(['/users/edit', user.id]);
+handleEdit(row: any) {
+  this.router.navigate([this.basePath, 'edit', row.id]); 
 }
   //  confirm before delete
   confirmDelete(row: any) {

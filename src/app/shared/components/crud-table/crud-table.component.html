@@ -66,13 +66,14 @@
           tooltip="View"
         ></button>
 
-        <button
-         pButton
-         icon="pi pi-pencil"
-         class="p-button-sm p-button-text p-button-warning"
-         (click)="router.navigate(['/users/edit', row.id])"
+       <button
+        pButton
+        icon="pi pi-pencil"
+        class="p-button-sm p-button-text p-button-warning"
+        (click)="router.navigate([basePath + '/edit', row.id])"
          tooltip="Edit">
-         </button>
+       </button>
+
 
         <button
           pButton
